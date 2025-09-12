@@ -1,1 +1,31 @@
+::selection {
+  background-color: var(--color-green);
+  color: var(--color-green-light);
+}
 
+:focus-visible {
+  outline: 3px solid orange;
+  transition: outline 0.2s ease;
+  border-radius: inherit;
+}
+
+html {
+  font-size: var(--font-size);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: var(--font);
+  scrollbar-color: var(--color-purple) transparent;
+  scrollbar-width: none;
+  caret-color: orange;
+  height: 100%;
+  /* overscroll-behavior: none; */
+}
+
+body {
+  color: var(--color-white);
+  line-height: 1.6;
+  padding: 0;
+  margin: 0;
+  min-height: 100vh;
+  background-color: black;
+}
