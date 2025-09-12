@@ -29,3 +29,31 @@ body {
   min-height: 100vh;
   background-color: black;
 }
+
+section a {
+  color: var(--color-link);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+
+  &:hover,
+  &:focus-visible {
+    color: var(--color-link-hover);
+  }
+
+  &:active {
+    color: var(--color-link-active);
+  }
+
+  &:visited {
+    color: var(--color-link-visited);
+
+    &:hover,
+    &:focus-visible {
+      color: var(--color-link-visited-hover);
+    }
+
+    &:active {
+      color: var(--color-link-visited-active);
+    }
+  }
+}
