@@ -30,7 +30,7 @@ body {
   background-color: black;
 }
 
-section a {
+a {
   color: var(--color-link);
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
