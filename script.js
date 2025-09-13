@@ -340,3 +340,14 @@ if (searchInput) {
     }
   });
 }
+
+function showPopup() {
+  popUpBig.style.display = "block";
+  recBox.style.display = "block";
+
+  // Focus the textarea after showing the pop-up
+  const textarea = document.getElementById("message");
+  if (textarea) textarea.focus();
+
+  document.body.style.overflow = "hidden";
+}
