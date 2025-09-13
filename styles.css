@@ -296,6 +296,7 @@ form#Search-bar {
 
 .pop-up-box,
 .rec-box {
+  padding: 20px 50px;
   display: none;
   position: fixed;
   top: 50%;
@@ -331,7 +332,7 @@ form#Search-bar {
 }
 
 h1 {
-  margin: 10px 28px;
+  margin: 0px;
   font-size: 2rem;
 }
 
@@ -445,7 +446,7 @@ main {
   background-color: var(--color-gray-800);
   border: var(--glass-border);
   width: 100%;
-  height: 2000px;
+  min-height: 2000px;
   box-shadow: 0px 15px 19px 2px rgba(0, 0, 0, 0.5);
 }
 
@@ -456,14 +457,14 @@ main {
 
 #author-table th,
 #author-table td {
-  padding: 2px;
+  padding: 0px;
   padding-left: 20px;
   text-align: left;
   border-bottom: 1px solid var(--color-gray-700);
 }
 
 #author-table th {
-  padding: 5px;
+  padding: 0px;
   padding-top: 10px;
   padding-left: 20px;
 }
@@ -475,14 +476,43 @@ main {
 
 #works-table th,
 #works-table td {
-  padding: 2px;
+  padding: 0px;
   padding-left: 20px;
   text-align: left;
   border-bottom: 1px solid var(--color-gray-700);
 }
 
 #works-table th {
-  padding: 5px;
+  padding: 0px;
   padding-top: 10px;
   padding-left: 20px;
+}
+
+.pop-up-box table,
+.pop-up-box th,
+.pop-up-box td {
+  margin: 0;
+
+  padding: 0 10px; /* optional: adjust horizontal padding */
+  border: none; /* if you want no borders, or keep your existing */
+}
+
+.pop-up-box td {
+  margin: 0;
+  margin-left: 20px;
+}
+
+.pop-up-box tr {
+  margin: 0;
+  padding: 0;
+}
+
+.pop-up-box table td,
+.pop-up-box table th {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+h2 {
+  margin-bottom: 0;
 }

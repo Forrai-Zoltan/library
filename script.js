@@ -74,7 +74,7 @@ function showInfoPopup(item, type = "author") {
       authorWorks.forEach((work, index) => {
         const tr = document.createElement("tr");
         tr.style.backgroundColor =
-          index % 2 === 0 ? "rgba(255,255,255,0.05)" : "rgba(255,255,255,0.1)";
+          index % 2 === 0 ? "rgba(255,255,255,0.05)" : "rgba(255,255,255,0.0)";
 
         const tdTitle = document.createElement("td");
         const titleLink = document.createElement("a");
@@ -225,7 +225,7 @@ fetch("/library/data.json")
       td.appendChild(a);
       row.appendChild(td);
       row.style.backgroundColor =
-        index % 2 === 0 ? "rgba(255,255,255,0.05)" : "rgba(255,255,255,0.1)";
+        index % 2 === 0 ? "rgba(255,255,255,0.05)" : "rgba(255,255,255,0.0)";
       authorTableBody.appendChild(row);
     });
 
@@ -272,7 +272,7 @@ fetch("/library/data.json")
       });
 
       row.style.backgroundColor =
-        index % 2 === 0 ? "rgba(255,255,255,0.05)" : "rgba(255,255,255,0.1)";
+        index % 2 === 0 ? "rgba(255,255,255,0.05)" : "rgba(255,255,255,0.0)";
       worksTableBody.appendChild(row);
     });
   })
