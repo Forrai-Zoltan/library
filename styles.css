@@ -448,6 +448,7 @@ main {
   width: 100%;
   min-height: 2000px;
   box-shadow: 0px 15px 19px 2px rgba(0, 0, 0, 0.5);
+  overflow-x: scroll;
 }
 
 #author-table {
@@ -515,4 +516,25 @@ main {
 
 h2 {
   margin-bottom: 0;
+}
+
+#works-table tr.status-read {
+  background-color: rgba(0, 128, 0, 0.3) !important;
+}
+
+/* Highlight rows with status "read" */
+.pop-up-box tr.status-read {
+  background-color: rgba(0, 128, 0, 0.3) !important;
+}
+
+/* Prevent table rows from wrapping */
+#author-table td,
+#author-table th,
+#works-table td,
+#works-table th,
+.pop-up-box td,
+.pop-up-box th {
+  white-space: nowrap; /* Prevent wrapping */
+  overflow: hidden; /* Hide overflowed text */
+  text-overflow: ellipsis; /* Show "…" if text is too long */
 }

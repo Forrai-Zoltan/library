@@ -73,8 +73,10 @@ function showInfoPopup(item, type = "author") {
       const tbody = document.createElement("tbody");
       authorWorks.forEach((work, index) => {
         const tr = document.createElement("tr");
-        tr.style.backgroundColor =
-          index % 2 === 0 ? "rgba(255,255,255,0.05)" : "rgba(255,255,255,0.0)";
+        // Remove inline backgroundColor and add class for read status
+        if (work.status?.toLowerCase() === "read") {
+          tr.classList.add("status-read");
+        }
 
         const tdTitle = document.createElement("td");
         const titleLink = document.createElement("a");
@@ -238,6 +240,11 @@ fetch("/library/data.json")
       work.authorNames = (work.authors || []).map(
         (id) => authorsMap[id]?.name || id
       );
+
+      // Remove inline backgroundColor and add class for read status
+      if (work.status?.toLowerCase() === "read") {
+        row.classList.add("status-read");
+      }
 
       const titleCell = document.createElement("td");
       const titleLink = document.createElement("a");
