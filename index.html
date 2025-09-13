@@ -3,22 +3,60 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <base href="https://forrai-zoltan.github.io" />
     <!-- accessing from mobile -->
     <script src="/cdn/src/js/from-mobile.js"></script>
-    <title>Document</title>
+    <title>Library</title>
     <link rel="stylesheet" href="/cdn/src/css/variables.css" />
     <link rel="stylesheet" href="/library/styles.css" />
   </head>
   <body>
-    <p>
-      This is where I'll put my reading list. You will be able to see what I
-      have read/watched, what I enjoyed, and what I recommend. I will also
-      create an input field where you'll be able to give me reading/whatching
-      suggestions. I'll update you when this page is ready on my
-      <a href="/personal/thoughts">micro blog</a> or on my
-      <a href="/cdn/rss-tweets.xml">RSS</a>.
-    </p>
+    <header>
+      <nav>
+        <a
+          id="navigate-back-a"
+          href="https://www.gildrom.com/personal/obsessions">
+          <div id="nav-back">
+            <img
+              src="/cdn/media/img/compressed/socrates-middle-finger.avif"
+              alt="" />
+          </div>
+        </a>
+        <div id="view-select">
+          <span class="view-button">Books</span
+          ><span class="view-button">Authors</span>
+        </div>
+        <a href="#">recommend</a>
+      </nav>
+      <div id="search-field">
+        <article>
+          <form action="" id="Search-bar">
+            <div>
+              <input
+                autocomplete="off"
+                id="Search"
+                name="filter"
+                type="text"
+                placeholder="Filter..." /><button disabled>
+                <img src="/cdn/asset/ico/search.svg" alt="" />
+              </button>
+            </div>
+          </form>
+        </article>
+      </div>
+    </header>
+    <div class="pop-up-big">
+      <div class="pop-up-box"></div>
+    </div>
+    <main>
+      <p>
+        This is where I'll put my reading list. You will be able to see what I
+        have read/watched, what I enjoyed, and what I recommend. I will also
+        create an input field where you'll be able to give me reading/whatching
+        suggestions. I'll update you when this page is ready on my
+        <a href="/personal/thoughts">micro blog</a> or on my
+        <a href="/cdn/rss-tweets.xml">RSS</a>.
+      </p>
+    </main>
   </body>
   <script src="/library/script.js"></script>
 </html>
