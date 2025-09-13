@@ -46,18 +46,7 @@ a {
     color: var(--color-link-active);
   }
 
-  &:visited {
-    color: var(--color-link-visited);
-
-    &:hover,
-    &:focus-visible {
-      color: var(--color-link-visited-hover);
-    }
-
-    &:active {
-      color: var(--color-link-visited-active);
-    }
-  }
+  
 }
 
 header {
@@ -538,3 +527,4 @@ h2 {
   overflow: hidden; /* Hide overflowed text */
   text-overflow: ellipsis; /* Show "…" if text is too long */
 }
+
