@@ -2,12 +2,12 @@
   "authors": [
     {
       "id": "a1",
-      "name": "Author One",
+      "name": "Author One test",
       "bio": "Short paragraph about the author."
     },
     {
       "id": "a2",
-      "name": "Author Two",
+      "name": "Author Two test 2",
       "bio": "Another author bio."
     }
   ],

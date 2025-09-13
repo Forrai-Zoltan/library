@@ -46,7 +46,10 @@
       </div>
     </header>
     <div class="pop-up-big">
-      <div class="pop-up-box"><button class="close-btn">X</button></div>
+      <div class="pop-up-box">
+        <button class="close-btn">X</button>
+        <div class="popup-content"></div>
+      </div>
       <div class="rec-box">
         <h1>Got something to recommend?</h1>
         <button class="close-btn">X</button>
@@ -79,19 +82,28 @@
     </div>
     <main>
       <div id="authors-content">
-        <p>
-          This is where I'll put my reading list. You will be able to see what I
-          have read/watched, what I enjoyed, and what I recommend. I will also
-          create an input field where you'll be able to give me reading/whatching
-          suggestions. I'll update you when this page is ready on my
-          <a href="/personal/thoughts">micro blog</a> or on my
-          <a href="/cdn/rss-tweets.xml">RSS</a>.
-        </p>
+        <table id="author-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
       </div>
-      <div id="books-content" style="display: none;">
-        <p>
-          Books content will go here.
-        </p>
+      <div id="books-content" style="display: none">
+        <table id="works-table">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Authors</th>
+              <th>Tags</th>
+              <th>Status</th>
+              <th>Rating</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
       </div>
     </main>
   </body>
