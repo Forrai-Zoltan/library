@@ -1,0 +1,32 @@
+{
+  "authors": [
+    {
+      "id": "a1",
+      "name": "Author One",
+      "bio": "Short paragraph about the author."
+    },
+    {
+      "id": "a2",
+      "name": "Author Two",
+      "bio": "Another author bio."
+    }
+  ],
+  "works": [
+    {
+      "title": "Book Title One",
+      "authors": ["a1", "a2"],
+      "tags": "",
+      "status": "read",
+      "rating": 8,
+      "notes": "Thoughts about the work."
+    },
+    {
+      "title": "Book Title Two",
+      "authors": ["a1"],
+      "tags": "",
+      "status": "unread",
+      "rating": null,
+      "notes": "Planning to read."
+    }
+  ]
+}
