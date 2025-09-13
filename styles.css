@@ -288,7 +288,9 @@ form#Search-bar {
   z-index: 500;
 }
 
-.pop-up-box {
+.pop-up-box,
+.rec-box {
+  display: none;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -299,6 +301,136 @@ form#Search-bar {
   border: var(--glass-border);
   z-index: 500;
   border-radius: 10px;
+
+  .close-btn {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+    z-index: 10;
+    background: transparent;
+    border: none;
+    color: var(--color-gray-500);
+    font-size: 1.2rem;
+
+    &:hover {
+      color: var(--color-gray-100);
+    }
+
+    &:active {
+      color: var(--color-gray-600);
+      transform: scale(0.9);
+    }
+  }
+}
+
+h1 {
+  margin: 10px 28px;
+  font-size: 2rem;
+}
+
+.rec-box > div {
+  display: flex;
+  gap: 0px; 
+  align-items: flex-start;
+
+  p {
+    width: 50%;
+    margin-top: 10px;
+    margin-right: 30px;
+    hyphens: auto; 
+    word-wrap: break-word; 
+    overflow-wrap: break-word;
+  }
+}
+
+form#recommend {
+  width: 50%;
+  padding: 0 30px 40px 30px;
+
+  textarea {
+    box-sizing: border-box;
+    width: 100%;
+    box-shadow: inset 0 0 10px 2px hsla(0, 0%, 10%, 1),
+      0px 5px 10px 2px rgba(0, 0, 0, 0.5);
+    margin-top: 0.3rem;
+
+    background-color: var(--color-gray-800);
+    border: var(--glass-border);
+    color: var(--color-white);
+    border-radius: 10px;
+    padding: 0.5rem;
+    font-family: inherit;
+    font-size: 1rem;
+    resize: none;
+
+    &::placeholder {
+      color: var(--color-gray-600);
+    }
+
+    &:focus {
+      background-color: var(--color-gray-750);
+      outline: none;
+      border-radius: 10px;
+
+      &::placeholder {
+        color: var(--color-gray-500);
+      }
+    }
+  }
+
+  button {
+    margin-top: 15px;
+    text-decoration: none;
+    font-weight: bold;
+    user-select: none;
+    border: var(--glass-border);
+    height: 2.5rem;
+    width: 100%;
+    border-radius: 20px;
+    background: radial-gradient(
+      circle at center,
+      var(--color-purple),
+      var(--color-purple),
+      var(--color-purple-dark)
+    );
+    color: var(--color-gray-100);
+    font-size: 1.1rem;
+    font-family: inherit;
+    box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.5);
+
+    transition: transform 0.3s ease, box-shadow 0.2s ease, background 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    &:hover,
+    &:focus-visible {
+      transform: scale(1.05);
+      border: var(--glass-border);
+      color: var(--color-white);
+      cursor: pointer;
+      background: radial-gradient(
+        circle at center,
+        var(--color-purple-hover),
+        var(--color-purple-hover),
+        var(--color-purple),
+        var(--color-purple-dark)
+      );
+      box-shadow: 0px 15px 19px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    &:active {
+      transform: scale(1.02);
+      background: radial-gradient(
+        circle at center,
+        var(--color-purple),
+        var(--color-purple-dark),
+        var(--color-purple-dark)
+      );
+    }
+  }
 }
 
 main {

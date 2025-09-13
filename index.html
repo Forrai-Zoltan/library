@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <base href="https://forrai-zoltan.github.io" /> -->
     <!-- accessing from mobile -->
     <script src="/cdn/src/js/from-mobile.js"></script>
     <title>Library</title>
@@ -25,7 +26,7 @@
           <span class="view-button">Books</span
           ><span class="view-button">Authors</span>
         </div>
-        <a href="#">recommend</a>
+        <a class="rec-link" href="#">recommend</a>
       </nav>
       <div id="search-field">
         <article>
@@ -45,18 +46,38 @@
       </div>
     </header>
     <div class="pop-up-big">
-      <div class="pop-up-box"></div>
+      <!-- <div class="pop-up-box"><button class="close-btn">X</button></div> -->
+      <div class="rec-box">
+        <h1>Got something to recommend?</h1>
+        <button class="close-btn">X</button>
+        <div>
+          <form
+            id="recommend"
+            action="https://formsubmit.co/efcbb6e6922ac428f0bf0a246d5e31f7"
+            method="POST">
+            <textarea
+              id="message"
+              name="message"
+              rows="12"
+              placeholder="I'm not reading Twilight no matter how many times you send it Dave!"
+              autocomplete="off"
+              required></textarea>
+            <button type="submit"><span>Send</span></button>
+          </form>
+          <p>
+            If you have anything to recommend, you can do it here, just write it
+            into the box and hit send. Tell me why I should read it, why you
+            like it, what's it about (no spoliers pls). <br />
+            <br />
+
+            Or, if you know how, you can create an issue or submit a pull
+            request directly on
+            <a href="https://github.com/Forrai-Zoltan/library">GitHub</a>.
+          </p>
+        </div>
+      </div>
     </div>
-    <main>
-      <p>
-        This is where I'll put my reading list. You will be able to see what I
-        have read/watched, what I enjoyed, and what I recommend. I will also
-        create an input field where you'll be able to give me reading/whatching
-        suggestions. I'll update you when this page is ready on my
-        <a href="/personal/thoughts">micro blog</a> or on my
-        <a href="/cdn/rss-tweets.xml">RSS</a>.
-      </p>
-    </main>
+    <main></main>
   </body>
   <script src="/library/script.js"></script>
 </html>
