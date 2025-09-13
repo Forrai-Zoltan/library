@@ -23,8 +23,8 @@
           </div>
         </a>
         <div id="view-select">
-          <span class="view-button">Books</span
-          ><span class="view-button">Authors</span>
+          <span class="view-button" data-view="books">Books</span>
+          <span class="view-button active" data-view="authors">Authors</span>
         </div>
         <a class="rec-link" href="#">recommend</a>
       </nav>
@@ -46,7 +46,7 @@
       </div>
     </header>
     <div class="pop-up-big">
-      <!-- <div class="pop-up-box"><button class="close-btn">X</button></div> -->
+      <div class="pop-up-box"><button class="close-btn">X</button></div>
       <div class="rec-box">
         <h1>Got something to recommend?</h1>
         <button class="close-btn">X</button>
@@ -78,14 +78,21 @@
       </div>
     </div>
     <main>
-      <p>
-        This is where I'll put my reading list. You will be able to see what I
-        have read/watched, what I enjoyed, and what I recommend. I will also
-        create an input field where you'll be able to give me reading/whatching
-        suggestions. I'll update you when this page is ready on my
-        <a href="/personal/thoughts">micro blog</a> or on my
-        <a href="/cdn/rss-tweets.xml">RSS</a>.
-      </p>
+      <div id="authors-content">
+        <p>
+          This is where I'll put my reading list. You will be able to see what I
+          have read/watched, what I enjoyed, and what I recommend. I will also
+          create an input field where you'll be able to give me reading/whatching
+          suggestions. I'll update you when this page is ready on my
+          <a href="/personal/thoughts">micro blog</a> or on my
+          <a href="/cdn/rss-tweets.xml">RSS</a>.
+        </p>
+      </div>
+      <div id="books-content" style="display: none;">
+        <p>
+          Books content will go here.
+        </p>
+      </div>
     </main>
   </body>
   <script src="/library/script.js"></script>

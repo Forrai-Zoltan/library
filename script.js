@@ -9,18 +9,20 @@ document.head.appendChild(favicon);
 const recommendLink = document.querySelector(".rec-link");
 const popUpBig = document.querySelector(".pop-up-big");
 const recBox = document.querySelector(".rec-box");
-const closeBtn = recBox.querySelector(".close-btn");
+const closeBtn = document.querySelector(".rec-box .close-btn");
 
 // Function to show popup
 function showPopup() {
   popUpBig.style.display = "block";
   recBox.style.display = "block"; // keeps flex layout intact
+  document.body.style.overflow = "hidden"; // disable scroll
 }
 
 // Function to hide popup
 function hidePopup() {
   popUpBig.style.display = "none";
   recBox.style.display = "none";
+  document.body.style.overflow = ""; // restore scroll
 }
 
 // Open popup on link click
@@ -38,3 +40,28 @@ popUpBig.addEventListener("click", (e) => {
 
 // Close popup on close button click
 closeBtn.addEventListener("click", hidePopup);
+
+const viewButtons = document.querySelectorAll(".view-button");
+
+// Load saved view from localStorage (default to 'authors')
+let currentView = localStorage.getItem("currentView") || "authors";
+setActiveView(currentView);
+
+// Add click listeners
+viewButtons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const view = btn.dataset.view;
+    setActiveView(view);
+    localStorage.setItem("currentView", view);
+  });
+});
+
+// Function to update UI
+function setActiveView(view) {
+  viewButtons.forEach((btn) => {
+    btn.classList.toggle("active", btn.dataset.view === view);
+  });
+
+  document.querySelector("#books-content").style.display = view === "books" ? "block" : "none";
+  document.querySelector("#authors-content").style.display = view === "authors" ? "block" : "none";
+}
