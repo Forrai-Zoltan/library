@@ -72,11 +72,12 @@ nav {
 
 a#navigate-back-a {
   position: relative;
-  padding-bottom: 10px;
+  padding-bottom: 0px;
   left: -55px;
   text-decoration: none;
   z-index: 5;
   user-select: none;
+  border-radius: 10px;
 
   img {
     height: 1.5rem;
@@ -443,7 +444,8 @@ main {
   width: 100%;
   min-height: 2000px;
   box-shadow: 0px 15px 19px 2px rgba(0, 0, 0, 0.5);
-  overflow-x: scroll; }
+  overflow-x: scroll;
+}
 
 #author-table {
   width: 100%;
@@ -502,6 +504,24 @@ main {
   padding: 0;
 }
 
+tr {
+  margin: 0;
+  padding: 0;
+  padding-top: 5px !important;
+  line-height: 1.3;
+  font-size: 0.8rem;
+}
+
+td {
+  padding-top: 5px !important;
+
+}
+
+th {
+  font-size: 1rem;
+  border-bottom: 0.5px rgba(255, 255, 255, 0.306) solid !important;
+}
+
 .pop-up-box table td,
 .pop-up-box table th {
   padding: 0 !important;
@@ -533,7 +553,8 @@ h2 {
   text-overflow: ellipsis; /* Show "…" if text is too long */
 }
 
-b, strong {
+b,
+strong {
   color: var(--color-gray-600);
 }
 
