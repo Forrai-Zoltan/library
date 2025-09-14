@@ -249,7 +249,7 @@ function sortTable(table, colIndex) {
     if (i === colIndex) {
       const arrowSpan = document.createElement("span");
       arrowSpan.className = "sort-arrow";
-      arrowSpan.textContent = newDirection === "asc" ? "▲" : "▼";
+      arrowSpan.textContent = newDirection === "asc" ? "▼" : "▲";
       th.appendChild(arrowSpan);
     }
   });
