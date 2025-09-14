@@ -46,6 +46,26 @@
       "bio": "(1770–1850)"
     },
     {
+      "id": "a9",
+      "name": "George Gordon Byron",
+      "bio": "(1788–1824)"
+    },
+    {
+      "id": "a10",
+      "name": "Alfred, Lord Tennyson",
+      "bio": "(1809–1892)"
+    },
+    {
+      "id": "a11",
+      "name": "Robert Browning",
+      "bio": "(1812–1889)"
+    },
+    {
+      "id": "a",
+      "name": "",
+      "bio": ""
+    },
+    {
       "id": "a",
       "name": "",
       "bio": ""
@@ -63,7 +83,7 @@
       "tags": "info, meta",
       "status": "📌",
       "rating": null,
-      "notes": "This is my personal reading list. See what I read/reading, what I thought about it. Recommend me good stuff."
+      "notes": "<p>This is my personal reading list. See what I read/reading, what I thought about it. Recommend me good stuff.</p> <p>You can filter cards by #tags or text, or use <kbd>-</kbd> before a term to exclude items.</p>"
     },
     {
       "title": "Mac Flecknoe",
@@ -138,10 +158,26 @@
       "notes": "Lines Composed a Few Miles above Tintern Abbey, On Revisiting the Banks of the Wye during a Tour. July 13, 1798"
     },
     {
-      "title": "",
-      "authors": [""],
-      "tags": "",
-      "status": "",
+      "title": "Manfred",
+      "authors": ["a9"],
+      "tags": "dramatic poem",
+      "status": "unread",
+      "rating": null,
+      "notes": ""
+    },
+    {
+      "title": "The Lady of Shalott",
+      "authors": ["a10"],
+      "tags": "poem",
+      "status": "unread",
+      "rating": null,
+      "notes": "The Lady of Shalott (1832)"
+    },
+    {
+      "title": "My Last Duchess",
+      "authors": ["a11"],
+      "tags": "poem",
+      "status": "unread",
       "rating": null,
       "notes": ""
     },
