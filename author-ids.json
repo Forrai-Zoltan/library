@@ -1,6 +1,9 @@
 {
   "authorIds": {
-    "Author One": "a1",
-    "Author Two": "a2"
+    "Alexander Pope": "a3",
+    "Daniel Defoe": "a4",
+    "John Dryden": "a1",
+    "William Wycherley": "a2",
+    "Me": "a0"
   }
 }

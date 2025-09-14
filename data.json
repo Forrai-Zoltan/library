@@ -1,32 +1,84 @@
 {
   "authors": [
     {
+      "id": "a0",
+      "name": "Me",
+      "bio": "(1999—)"
+    },
+    {
       "id": "a1",
-      "name": "Author One test",
-      "bio": "Short paragraph about the author."
+      "name": "John Dryden",
+      "bio": "(1631–1700)"
     },
     {
       "id": "a2",
-      "name": "Author Two test 2",
-      "bio": "Another author bio."
+      "name": "William Wycherley",
+      "bio": "(1641–1716)"
+    },
+    {
+      "id": "a3",
+      "name": "Alexander Pope",
+      "bio": "(1688–1744)"
+    },
+    {
+      "id": "a4",
+      "name": "Daniel Defoe",
+      "bio": "(1660–1731)"
+    },
+    {
+      "id": "a",
+      "name": "",
+      "bio": ""
     }
   ],
   "works": [
     {
-      "title": "Book Title One",
-      "authors": ["a1", "a2"],
-      "tags": "funny, good",
-      "status": "read",
-      "rating": 8,
-      "notes": "Thoughts about the work."
+      "title": "Information",
+      "authors": ["a0"],
+      "tags": "info, meta",
+      "status": "📌",
+      "rating": null,
+      "notes": "This is my personal reading list. See what I read/reading, what I thought about it. Recommend me good stuff."
     },
     {
-      "title": "Book Title Two",
+      "title": "Mac Flecknoe",
       "authors": ["a1"],
-      "tags": "",
+      "tags": "poem",
       "status": "unread",
       "rating": null,
-      "notes": "Planning to read."
+      "notes": "<a href='https://www.poetryfoundation.org/poems/44181/mac-flecknoe'>Link</a>."
+    },
+    {
+      "title": "The Country Wife",
+      "authors": ["a2"],
+      "tags": "drama, comedy",
+      "status": "unread",
+      "rating": null,
+      "notes": ""
+    },
+    {
+      "title": "The Rape of the Lock",
+      "authors": ["a3"],
+      "tags": "poem",
+      "status": "unread",
+      "rating": null,
+      "notes": ""
+    },
+    {
+      "title": "Moll Flanders",
+      "authors": ["a4"],
+      "tags": "novel",
+      "status": "unread",
+      "rating": null,
+      "notes": ""
+    },
+    {
+      "title": "",
+      "authors": [""],
+      "tags": "",
+      "status": "",
+      "rating": null,
+      "notes": ""
     }
   ]
 }

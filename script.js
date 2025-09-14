@@ -156,7 +156,7 @@ function showInfoPopup(item, type = "author") {
 
     if (item.notes) {
       const notesP = document.createElement("p");
-      notesP.textContent = item.notes;
+      notesP.innerHTML = item.notes; // render HTML from JSON
       popupContent.appendChild(notesP);
     }
   }
@@ -198,6 +198,63 @@ viewButtons.forEach((btn) =>
   })
 );
 
+// Sorting function with visual indicators
+function sortTable(table, colIndex) {
+  const tbody = table.tBodies[0];
+  const rows = Array.from(tbody.rows);
+  if (!table._sortDirections) table._sortDirections = {};
+  const currentDirection = table._sortDirections[colIndex] || "asc";
+
+  // Determine new direction
+  const newDirection = currentDirection === "asc" ? "desc" : "asc";
+  table._sortDirections[colIndex] = newDirection;
+
+  rows.sort((a, b) => {
+    let aText = a.cells[colIndex]?.textContent.trim().toLowerCase() || "";
+    let bText = b.cells[colIndex]?.textContent.trim().toLowerCase() || "";
+
+    // Try to parse as numbers if both look numeric
+    const aNum = parseFloat(aText);
+    const bNum = parseFloat(bText);
+    if (!isNaN(aNum) && !isNaN(bNum)) {
+      aText = aNum;
+      bText = bNum;
+    }
+
+    if (aText < bText) return newDirection === "asc" ? -1 : 1;
+    if (aText > bText) return newDirection === "asc" ? 1 : -1;
+    return 0;
+  });
+
+  // Append sorted rows
+  rows.forEach((row) => tbody.appendChild(row));
+
+  // Reapply alternating background colors for rows that are not .status-read
+  let visibleIndex = 0;
+  rows.forEach((row) => {
+    if (!row.classList.contains("status-read")) {
+      row.style.backgroundColor =
+        visibleIndex % 2 === 0 ? "rgba(255,255,255,0.05)" : "rgba(255,255,255,0.0)";
+      visibleIndex++;
+    } else {
+      row.style.backgroundColor = "";
+    }
+  });
+
+  // Visual indicator logic
+  const headers = table.querySelectorAll("thead th");
+  headers.forEach((th, i) => {
+    // Remove any existing indicators
+    th.textContent = th.textContent.replace(/\s*[▲▼]$/, "");
+    if (i === colIndex) {
+      const arrowSpan = document.createElement("span");
+      arrowSpan.className = "sort-arrow";
+      arrowSpan.textContent = newDirection === "asc" ? "▲" : "▼";
+      th.appendChild(arrowSpan);
+    }
+  });
+}
+
 // Fetch data
 fetch("/library/data.json")
   .then((res) => res.json())
@@ -226,10 +283,31 @@ fetch("/library/data.json")
       });
       td.appendChild(a);
       row.appendChild(td);
+
+      const bioTd = document.createElement("td");
+      bioTd.textContent = author.bio || "";
+      row.appendChild(bioTd);
+
       row.style.backgroundColor =
         index % 2 === 0 ? "rgba(255,255,255,0.05)" : "rgba(255,255,255,0.0)";
       authorTableBody.appendChild(row);
     });
+
+    // Add sorting to author table headers
+    const authorTable = document.querySelector("#author-table");
+    if (authorTable) {
+      const headers = authorTable.querySelectorAll("thead th");
+      headers.forEach((th, index) => {
+        th.style.cursor = "pointer";
+        th.addEventListener("click", () => {
+          sortTable(authorTable, index);
+        });
+      });
+      // Remove any sort indicators initially
+      headers.forEach((th) => {
+        th.textContent = th.textContent.replace(/\s*[▲▼]$/, "");
+      });
+    }
 
     // Populate works table
     const worksTableBody = document.querySelector("#works-table tbody");
@@ -282,6 +360,22 @@ fetch("/library/data.json")
         index % 2 === 0 ? "rgba(255,255,255,0.05)" : "rgba(255,255,255,0.0)";
       worksTableBody.appendChild(row);
     });
+
+    // Add sorting to works table headers
+    const worksTable = document.querySelector("#works-table");
+    if (worksTable) {
+      const headers = worksTable.querySelectorAll("thead th");
+      headers.forEach((th, index) => {
+        th.style.cursor = "pointer";
+        th.addEventListener("click", () => {
+          sortTable(worksTable, index);
+        });
+      });
+      // Remove any sort indicators initially
+      headers.forEach((th) => {
+        th.textContent = th.textContent.replace(/\s*[▲▼]$/, "");
+      });
+    }
   })
   .catch((err) => console.error("Error loading data.json:", err));
 

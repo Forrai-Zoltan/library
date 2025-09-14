@@ -448,8 +448,8 @@ main {
 }
 main {
   border-radius: 20px !important;
-  overflow: hidden;       /* ensures children don't bleed over rounded edges */
-  overflow-x: auto;       /* still allows horizontal scroll */
+  overflow: hidden; /* ensures children don't bleed over rounded edges */
+  overflow-x: auto; /* still allows horizontal scroll */
 }
 
 #author-table {
@@ -503,6 +503,15 @@ td {
 th {
   font-size: 1rem;
   border-bottom: 0.5px rgba(255, 255, 255, 0.306) solid !important;
+  user-select: none;
+}
+
+/* New rule to reduce size of sort arrow indicators in table headers */
+th span.sort-arrow {
+  font-size: 0.7rem;
+  vertical-align: middle;
+  margin-left: 5px;
+  padding-bottom: 5px;
 }
 
 .pop-up-box table td,
@@ -569,4 +578,3 @@ div:has(strong):last-of-type {
     color: rgb(255, 211, 131) !important;
   }
 }
-
