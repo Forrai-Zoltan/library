@@ -88,8 +88,8 @@
     {
       "title": "Mac Flecknoe",
       "authors": ["a1"],
-      "tags": "poem",
-      "status": "unread",
+      "tags": "poem, satire",
+      "status": "read",
       "rating": null,
       "notes": ""
     },
