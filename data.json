@@ -2,7 +2,7 @@
   "authors": [
     {
       "id": "a0",
-      "name": "Me",
+      "name": ".Me",
       "bio": "(1999—)"
     },
     {
@@ -26,6 +26,31 @@
       "bio": "(1660–1731)"
     },
     {
+      "id": "a5",
+      "name": "Thomas Gray",
+      "bio": "(1716–1771)"
+    },
+    {
+      "id": "a6",
+      "name": "Laurence Sterne",
+      "bio": "(1713–1768)"
+    },
+    {
+      "id": "a7",
+      "name": "William Blake",
+      "bio": "(1757–1827)"
+    },
+    {
+      "id": "a8",
+      "name": "William Wordsworth",
+      "bio": "(1770–1850)"
+    },
+    {
+      "id": "a",
+      "name": "",
+      "bio": ""
+    },
+    {
       "id": "a",
       "name": "",
       "bio": ""
@@ -33,7 +58,7 @@
   ],
   "works": [
     {
-      "title": "Information",
+      "title": "1nformation",
       "authors": ["a0"],
       "tags": "info, meta",
       "status": "📌",
@@ -46,7 +71,7 @@
       "tags": "poem",
       "status": "unread",
       "rating": null,
-      "notes": "<a href='https://www.poetryfoundation.org/poems/44181/mac-flecknoe'>Link</a>."
+      "notes": ""
     },
     {
       "title": "The Country Wife",
@@ -69,6 +94,62 @@
       "authors": ["a4"],
       "tags": "novel",
       "status": "unread",
+      "rating": null,
+      "notes": ""
+    },
+    {
+      "title": "Elegy Written in a Country Churchyard",
+      "authors": ["a5"],
+      "tags": "poem",
+      "status": "unread",
+      "rating": null,
+      "notes": ""
+    },
+    {
+      "title": "A Sentimental Journey",
+      "authors": ["a6"],
+      "tags": "novel",
+      "status": "unread",
+      "rating": null,
+      "notes": "A Sentimental Journey Through France and Italy"
+    },
+    {
+      "title": "The Tyger",
+      "authors": ["a7"],
+      "tags": "poem",
+      "status": "unread",
+      "rating": null,
+      "notes": ""
+    },
+    {
+      "title": "The Lamb",
+      "authors": ["a7"],
+      "tags": "poem",
+      "status": "unread",
+      "rating": null,
+      "notes": ""
+    },
+    {
+      "title": "Tintern Abbey",
+      "authors": ["a8"],
+      "tags": "poem",
+      "status": "unread",
+      "rating": null,
+      "notes": "Lines Composed a Few Miles above Tintern Abbey, On Revisiting the Banks of the Wye during a Tour. July 13, 1798"
+    },
+    {
+      "title": "",
+      "authors": [""],
+      "tags": "",
+      "status": "",
+      "rating": null,
+      "notes": ""
+    },
+    {
+      "title": "",
+      "authors": [""],
+      "tags": "",
+      "status": "",
       "rating": null,
       "notes": ""
     },

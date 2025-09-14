@@ -197,15 +197,15 @@ viewButtons.forEach((btn) =>
     localStorage.setItem("currentView", view);
   })
 );
-
-// Sorting function with visual indicators
 function sortTable(table, colIndex) {
   const tbody = table.tBodies[0];
   const rows = Array.from(tbody.rows);
   if (!table._sortDirections) table._sortDirections = {};
-  const currentDirection = table._sortDirections[colIndex] || "asc";
 
-  // Determine new direction
+  // Always start alphabetical (asc) on first click
+  const currentDirection = table._sortDirections[colIndex] || "desc";
+
+  // Toggle direction
   const newDirection = currentDirection === "asc" ? "desc" : "asc";
   table._sortDirections[colIndex] = newDirection;
 
@@ -213,7 +213,6 @@ function sortTable(table, colIndex) {
     let aText = a.cells[colIndex]?.textContent.trim().toLowerCase() || "";
     let bText = b.cells[colIndex]?.textContent.trim().toLowerCase() || "";
 
-    // Try to parse as numbers if both look numeric
     const aNum = parseFloat(aText);
     const bNum = parseFloat(bText);
     if (!isNaN(aNum) && !isNaN(bNum)) {
@@ -226,10 +225,8 @@ function sortTable(table, colIndex) {
     return 0;
   });
 
-  // Append sorted rows
   rows.forEach((row) => tbody.appendChild(row));
 
-  // Reapply alternating background colors for rows that are not .status-read
   let visibleIndex = 0;
   rows.forEach((row) => {
     if (!row.classList.contains("status-read")) {
@@ -241,10 +238,8 @@ function sortTable(table, colIndex) {
     }
   });
 
-  // Visual indicator logic
   const headers = table.querySelectorAll("thead th");
   headers.forEach((th, i) => {
-    // Remove any existing indicators
     th.textContent = th.textContent.replace(/\s*[▲▼]$/, "");
     if (i === colIndex) {
       const arrowSpan = document.createElement("span");
@@ -445,3 +440,4 @@ function showPopup() {
 
   document.body.style.overflow = "hidden";
 }
+

@@ -1,9 +1,13 @@
 {
   "authorIds": {
-    "Alexander Pope": "a3",
-    "Daniel Defoe": "a4",
     "John Dryden": "a1",
     "William Wycherley": "a2",
+    "Alexander Pope": "a3",
+    "Daniel Defoe": "a4",
+    "Thomas Gray": "a5",
+    "Laurence Sterne": "a6",
+    "William Blake": "a7",
+    "William Wordsworth": "a8",
     "Me": "a0"
   }
 }

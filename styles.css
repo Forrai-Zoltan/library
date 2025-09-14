@@ -553,7 +553,7 @@ strong {
 #works-table td,
 #author-table td,
 .pop-up-box td {
-  max-width: 200px;
+  max-width: 350px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
