@@ -144,14 +144,13 @@ div#nav-back {
   width: 200px;
   display: inline-block;
   text-align: center;
-  border-radius: 10px;
   box-shadow: inset 0px -10px 25px -11px rgba(0, 0, 0, 0.8),
     inset 0px 15px 20px -10px rgba(0, 0, 0, 0.8),
     0px 5px 10px 2px rgba(0, 0, 0, 0.5);
   flex: 1;
   border: var(--glass-border);
   color: var(--color-gray-100);
-  border-radius: 20px;
+  border-radius: 55px;
   background: radial-gradient(
     circle at center,
     var(--color-purple),
@@ -438,7 +437,7 @@ form#recommend {
 
 main {
   margin-top: 135px;
-  border-radius: 30px;
+  border-radius: 20px;
   background-color: var(--color-gray-800);
   border: var(--glass-border);
   width: 100%;
@@ -457,7 +456,6 @@ main {
   padding: 0px;
   padding-left: 20px;
   text-align: left;
-
 }
 
 #author-table th {
@@ -476,7 +474,6 @@ main {
   padding: 0px;
   padding-left: 20px;
   text-align: left;
-
 }
 
 #works-table th {
@@ -484,7 +481,6 @@ main {
   padding-top: 10px;
   padding-left: 20px;
 }
-
 
 tr {
   margin: 0;
@@ -506,7 +502,7 @@ th {
 .pop-up-box table td,
 .pop-up-box table th {
   padding: 5px 0 0 10px !important;
-  margin: 5px 0 0 10px  !important;
+  margin: 5px 0 0 10px !important;
 }
 
 h2 {
@@ -553,9 +549,17 @@ td a {
 }
 
 p {
-  margin-top: 0;
+  margin-top: 0 !important;
 }
 
 div:has(strong):last-of-type {
   margin-bottom: 30px;
+}
+
+.rec-link {
+  color: orange;
+
+  &:hover {
+    color: rgb(255, 211, 131);
+  }
 }
