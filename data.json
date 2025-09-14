@@ -15,7 +15,7 @@
     {
       "title": "Book Title One",
       "authors": ["a1", "a2"],
-      "tags": "",
+      "tags": "funny, good",
       "status": "read",
       "rating": 8,
       "notes": "Thoughts about the work."

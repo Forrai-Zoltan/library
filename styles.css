@@ -289,7 +289,7 @@ form#Search-bar {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 60%;
+  width: 50%;
   min-height: 60%;
   background: var(--color-gray-800);
   border: var(--glass-border);
@@ -443,8 +443,7 @@ main {
   width: 100%;
   min-height: 2000px;
   box-shadow: 0px 15px 19px 2px rgba(0, 0, 0, 0.5);
-  overflow-x: scroll;
-}
+  overflow-x: scroll; }
 
 #author-table {
   width: 100%;
@@ -532,4 +531,17 @@ h2 {
   white-space: nowrap; /* Prevent wrapping */
   overflow: hidden; /* Hide overflowed text */
   text-overflow: ellipsis; /* Show "…" if text is too long */
+}
+
+b, strong {
+  color: var(--color-gray-600);
+}
+
+#works-table td,
+#author-table td,
+.pop-up-box td {
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
