@@ -485,24 +485,6 @@ main {
   padding-left: 20px;
 }
 
-.pop-up-box table,
-.pop-up-box th,
-.pop-up-box td {
-  margin: 0;
-
-  padding: 0 10px; /* optional: adjust horizontal padding */
-  border: none; /* if you want no borders, or keep your existing */
-}
-
-.pop-up-box td {
-  margin: 0;
-  margin-left: 20px;
-}
-
-.pop-up-box tr {
-  margin: 0;
-  padding: 0;
-}
 
 tr {
   margin: 0;
@@ -514,7 +496,6 @@ tr {
 
 td {
   padding-top: 5px !important;
-
 }
 
 th {
@@ -524,8 +505,8 @@ th {
 
 .pop-up-box table td,
 .pop-up-box table th {
-  padding: 0 !important;
-  margin: 0 !important;
+  padding: 5px 0 0 10px !important;
+  margin: 5px 0 0 10px  !important;
 }
 
 h2 {
@@ -565,4 +546,8 @@ strong {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+td a {
+  color: whitesmoke;
 }
