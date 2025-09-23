@@ -64,11 +64,23 @@ function showInfoPopup(item, type = "author") {
       table.appendChild(thead);
 
       const tbody = document.createElement("tbody");
+      let zebraIndex = 0;
       authorWorks.forEach((work, index) => {
         const tr = document.createElement("tr");
-        // Remove inline backgroundColor and add class for read status
-        if (work.status?.toLowerCase() === "read") {
+        const isRead = work.status?.toLowerCase() === "read";
+        const isPinned = work.status?.trim() === "📌";
+        if (isRead) {
           tr.classList.add("status-read");
+        }
+        if (isPinned) {
+          tr.classList.add("status-pinned");
+        }
+
+        // Zebra striping: skip pinned/read rows, only apply to others
+        if (!isRead && !isPinned) {
+          tr.style.backgroundColor =
+            zebraIndex % 2 === 0 ? "rgba(255,255,255,0.05)" : "rgba(255,255,255,0.0)";
+          zebraIndex++;
         }
 
         const tdTitle = document.createElement("td");
@@ -301,6 +313,7 @@ fetch("/library/data.json")
 
     // Populate works table
     const worksTableBody = document.querySelector("#works-table tbody");
+    let zebraIndex = 0;
     data.works.forEach((work, index) => {
       const row = document.createElement("tr");
 
@@ -309,9 +322,20 @@ fetch("/library/data.json")
         (id) => authorsMap[id]?.name || id
       );
 
-      // Remove inline backgroundColor and add class for read status
-      if (work.status?.toLowerCase() === "read") {
+      const isRead = work.status?.toLowerCase() === "read";
+      const isPinned = work.status?.trim() === "📌";
+      if (isRead) {
         row.classList.add("status-read");
+      }
+      if (isPinned) {
+        row.classList.add("status-pinned");
+      }
+
+      // Zebra striping: skip pinned/read rows, only apply to others
+      if (!isRead && !isPinned) {
+        row.style.backgroundColor =
+          zebraIndex % 2 === 0 ? "rgba(255,255,255,0.05)" : "rgba(255,255,255,0.0)";
+        zebraIndex++;
       }
 
       const titleCell = document.createElement("td");
@@ -346,8 +370,6 @@ fetch("/library/data.json")
         row.appendChild(td);
       });
 
-      row.style.backgroundColor =
-        index % 2 === 0 ? "rgba(255,255,255,0.05)" : "rgba(255,255,255,0.0)";
       worksTableBody.appendChild(row);
     });
 
