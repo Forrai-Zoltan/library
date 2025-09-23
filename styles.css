@@ -465,10 +465,12 @@ main {
   text-align: left;
 }
 
-#author-table th {
+#author-table th,
+#works-table th {
   padding: 0px;
   padding-top: 5px;
   padding-left: 20px;
+  user-select: none;
 }
 
 #works-table {
@@ -481,12 +483,6 @@ main {
   padding: 0px;
   padding-left: 20px;
   text-align: left;
-}
-
-#works-table th {
-  padding: 0px;
-  padding-top: 5px;
-  padding-left: 20px;
 }
 
 tr {
