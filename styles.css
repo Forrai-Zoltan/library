@@ -1,5 +1,5 @@
 ::selection {
-  background-color: var(--color-green);
+  background-color: var(--color-green-m);
   color: var(--color-green-light);
 }
 
@@ -133,9 +133,11 @@ div#nav-back {
   display: flex;
   align-items: center;
   transition: padding-right 0.2s ease;
+  -webkit-user-select: none !important; /* Safari */
 }
 
 .view-button {
+  -webkit-user-select: none !important; /* Safari */
   user-select: none;
   font-size: 1rem;
   font-family: var(--font);
@@ -259,6 +261,7 @@ form#Search-bar {
     color: var(--color-white);
     cursor: pointer;
     user-select: none;
+    -webkit-user-select: none !important; /* Safari */
 
     &:focus,
     &:hover {
@@ -465,18 +468,16 @@ main {
   text-align: left;
 }
 
-
-
-#works-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
 #works-table th,
 #works-table td {
   padding: 0px;
   padding-left: 20px;
   text-align: left;
+}
+
+#works-table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
 tr {
@@ -496,8 +497,8 @@ th {
   border-bottom: 0.5px rgba(255, 255, 255, 0.306) solid !important;
   user-select: none;
   -webkit-user-select: none !important; /* Safari */
-  -moz-user-select: none;    /* Firefox */
-  -ms-user-select: none; 
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none;
 }
 
 /* New rule to reduce size of sort arrow indicators in table headers */
@@ -567,6 +568,8 @@ div:has(strong):last-of-type {
 
 .rec-link {
   color: orange !important;
+  -webkit-user-select: none !important; /* Safari */
+  user-select: none;
 
   &:hover {
     color: rgb(255, 211, 131) !important;
@@ -578,8 +581,8 @@ div:has(strong):last-of-type {
   padding: 5px 0 0 20px !important;
   user-select: none !important;
   -webkit-user-select: none; /* Safari */
-  -moz-user-select: none;    /* Firefox */
-  -ms-user-select: none; 
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none;
 }
 
 main {
