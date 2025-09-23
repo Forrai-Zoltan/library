@@ -576,6 +576,12 @@ div:has(strong):last-of-type {
   }
 }
 
+#author-table th,
+#works-table th {
+  padding: 5px 0 0 20px !important;
+  user-select: none !important;
+}
+
 main {
   position: relative; /* or absolute/fixed depending on layout */
   z-index: 10; /* higher than fogwrapper */
