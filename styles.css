@@ -465,13 +465,7 @@ main {
   text-align: left;
 }
 
-#author-table th,
-#works-table th {
-  padding: 0px;
-  padding-top: 5px;
-  padding-left: 20px;
-  user-select: none;
-}
+
 
 #works-table {
   width: 100%;
@@ -501,6 +495,9 @@ th {
   font-size: 1rem;
   border-bottom: 0.5px rgba(255, 255, 255, 0.306) solid !important;
   user-select: none;
+  -webkit-user-select: none !important; /* Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none; 
 }
 
 /* New rule to reduce size of sort arrow indicators in table headers */
@@ -580,6 +577,9 @@ div:has(strong):last-of-type {
 #works-table th {
   padding: 5px 0 0 20px !important;
   user-select: none !important;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none; 
 }
 
 main {
