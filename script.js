@@ -68,12 +68,12 @@ function showInfoPopup(item, type = "author") {
       authorWorks.forEach((work, index) => {
         const tr = document.createElement("tr");
         const isRead = work.status?.toLowerCase() === "read";
-        const isPinned = work.status?.trim() === "📌";
+        const isLoved = work.rating?.trim() === "10";
         if (isRead) {
           tr.classList.add("status-read");
         }
-        if (isPinned) {
-          tr.classList.add("status-pinned");
+        if (isLoved) {
+          tr.classList.add("status-loved");
         }
 
         // Zebra striping: skip pinned/read rows, only apply to others

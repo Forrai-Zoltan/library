@@ -591,7 +591,7 @@ main {
   background: hsla(var(--color-purple-dark-a), 0.7);
 }
 
-#works-table tr.status-pinned {
+#works-table tr.status-loved {
   /* background-color: rgb(143, 77, 6) !important; */
   color: orange !important;
   font-weight: bold;

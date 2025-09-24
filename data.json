@@ -1,4 +1,5 @@
 {
+  "$schema": "schema.json",
   "authors": [
     {
       "id": "a0",
@@ -59,21 +60,6 @@
       "id": "a11",
       "name": "Robert Browning",
       "bio": "(1812–1889)"
-    },
-    {
-      "id": "a",
-      "name": "",
-      "bio": ""
-    },
-    {
-      "id": "a",
-      "name": "",
-      "bio": ""
-    },
-    {
-      "id": "a",
-      "name": "",
-      "bio": ""
     }
   ],
   "works": [
@@ -178,22 +164,6 @@
       "authors": ["a11"],
       "tags": "poem",
       "status": "unread",
-      "rating": null,
-      "notes": ""
-    },
-    {
-      "title": "",
-      "authors": [""],
-      "tags": "",
-      "status": "",
-      "rating": null,
-      "notes": ""
-    },
-    {
-      "title": "",
-      "authors": [""],
-      "tags": "",
-      "status": "",
       "rating": null,
       "notes": ""
     }

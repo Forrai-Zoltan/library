@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Library Data",
+  "type": "object",
+  "properties": {
+    "authors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "bio": { "type": "string" }
+        },
+        "required": ["id", "name"]
+      },
+      "uniqueItems": true
+    },
+    "works": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": { "type": "string" },
+          "authors": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "tags": { "type": "string" },
+          "status": { "type": "string" },
+          "rating": { "type": ["number", "null"] },
+          "notes": { "type": "string" }
+        },
+        "required": ["title", "authors"]
+      },
+      "uniqueItems": true
+    }
+  },
+  "required": ["authors", "works"]
+}

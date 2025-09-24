@@ -1,5 +1,6 @@
 {
   "authorIds": {
+    "Me": "a0",
     "John Dryden": "a1",
     "William Wycherley": "a2",
     "Alexander Pope": "a3",
@@ -10,7 +11,21 @@
     "William Wordsworth": "a8",
     "George Gordon Byron": "a9",
     "Alfred, Lord Tennyson": "a10",
-    "Robert Browning": "a11",
-    "Me": "a0"
+    "Robert Browning": "a11"
+  },
+
+  "template-A": {
+    "id": "a",
+    "name": "",
+    "bio": ""
+  },
+    
+  "template-B": {
+    "title": "",
+    "authors": [""],
+    "tags": "",
+    "status": "",
+    "rating": null,
+    "notes": ""
   }
 }
