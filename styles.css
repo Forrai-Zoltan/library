@@ -529,6 +529,10 @@ h2 {
 #works-table tr.status-read:nth-child(odd),
 .pop-up-box tr.status-read:nth-child(odd) {
   background-color: rgb(0, 70, 0) !important;
+  
+  &:hover {
+    background-color: rgb(21, 80, 21) !important;
+  }
 }
 
 tbody tr:hover {
