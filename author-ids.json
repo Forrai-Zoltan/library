@@ -2,6 +2,7 @@
   "authorIds": {
     "Me": "a0",
     "Aristotle": "a12",
+    "J.R.R. Tolkien": "a23",
     
     "John Dryden": "a1",
     "William Wycherley": "a2",
@@ -23,7 +24,9 @@
     "Robert C. Davis": "a19",
     "Beth Lindsmith": "a20",
     "Marcus Aurelius": "a21",
-    "John Milton": "a22"
+    "John Milton": "a22",
+    "Charles Darwin": "a24",
+    "Vincent B. Leitch": "a25"
 
   },
 

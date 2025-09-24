@@ -115,9 +115,17 @@
       "id": "a22",
       "name": "John Milton",
       "bio": ""
+    },
+    {
+      "id": "a23",
+      "name": "J.R.R. Tolkien",
+      "bio": ""
+    },
+    {
+      "id": "a24",
+      "name": "Charles Darwin",
+      "bio": ""
     }
-
-
   ],
   "works": [
     {
@@ -311,6 +319,70 @@
       "status": "unread",
       "rating": null,
       "notes": "Paradise Lost & Other Poems. (Paradise Regained, Samson Agonistes, On the morning of Christ's Nativity, Lycidas, L'Allegro, Il penseroso. Sonnets: On Shakespeare, On His Being Arrived to the Age of 23, When the Assailt Was Intended to the City, To a Virtuous Young Lady, To the Lady Nergaret Ley, On the Detraction Which Followed Upon My Writing Certain Treatises, On the Same, To Mr. H. Laws, on His Aires, On the religious Memory of Mrs. Thomson, On the Late Massacher in Piemont, On His Blindness (Sonnet XVI or XIX), To Mr. Lawrence, To Cyriak Skinner, To Mr. Cyriack Skinner Upon His Blindness, On His Deceased Wife)"
+    },
+    {
+      "title": "The Silmarillion",
+      "authors": ["a23"],
+      "tags": "fantasy",
+      "status": "unread",
+      "rating": null,
+      "notes": ""
+    },
+    {
+      "title": "The Fall of Gondolin",
+      "authors": ["a23"],
+      "tags": "fantasy",
+      "status": "unread",
+      "rating": null,
+      "notes": ""
+    },
+    {
+      "title": "Beren and Luthien",
+      "authors": ["a23"],
+      "tags": "fantasy",
+      "status": "unread",
+      "rating": null,
+      "notes": ""
+    },
+    {
+      "title": "The Hobbit",
+      "authors": ["a23"],
+      "tags": "fantasy",
+      "status": "read",
+      "rating": 8.5,
+      "notes": ""
+    },
+    {
+      "title": "The Children of Húrin",
+      "authors": ["a23"],
+      "tags": "fantasy",
+      "status": "unread",
+      "rating": null,
+      "notes": "Narn I Chîn Húrin"
+    },
+    {
+      "title": "The Lord of the Rings",
+      "authors": ["a23"],
+      "tags": "fantasy",
+      "status": "unread",
+      "rating": null,
+      "notes": ""
+    },
+    {
+      "title": "The Origin of Species",
+      "authors": ["a24"],
+      "tags": "biology, science",
+      "status": "unread",
+      "rating": null,
+      "notes": ""
+    },
+    {
+      "title": "American Literary Criticism from the Thirties to Eighties",
+      "authors": ["a25"],
+      "tags": "literary criticism, literature",
+      "status": "unread",
+      "rating": null,
+      "notes": ""
     }
   ]
 }
