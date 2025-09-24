@@ -60,7 +60,64 @@
       "id": "a11",
       "name": "Robert Browning",
       "bio": "(1812–1889)"
+    },
+    {
+      "id": "a12",
+      "name": "Aristotle",
+      "bio": ""
+    },
+    {
+      "id": "a13",
+      "name": "Jean Delumeau",
+      "bio": ""
+    },
+    {
+      "id": "a14",
+      "name": "Hans H. Ørberg",
+      "bio": ""
+    },
+    {
+      "id": "a15",
+      "name": "Nicolo Machiavelli",
+      "bio": ""
+    },
+    {
+      "id": "a16",
+      "name": "Blake Snyder",
+      "bio": ""
+    },
+    {
+      "id": "a17",
+      "name": "Michael Wood",
+      "bio": ""
+    },
+    {
+      "id": "a18",
+      "name": "Mihaly Csikszentmihaly",
+      "bio": ""
+    },
+    {
+      "id": "a19",
+      "name": "Robert C. Davis",
+      "bio": ""
+    },
+    {
+      "id": "a20",
+      "name": "Beth Lindsmith",
+      "bio": ""
+    },
+    {
+      "id": "a21",
+      "name": "Marcus Aurelius",
+      "bio": ""
+    },
+    {
+      "id": "a22",
+      "name": "John Milton",
+      "bio": ""
     }
+
+
   ],
   "works": [
     {
@@ -166,6 +223,94 @@
       "status": "unread",
       "rating": null,
       "notes": ""
+    },
+    {
+      "title": "Reneszánsz",
+      "authors": ["a13"],
+      "tags": "🇭🇺, history",
+      "status": "unread",
+      "rating": null,
+      "notes": "Tanslate: Sujtó László"
+    },
+    {
+      "title": "Az angol irodalom története",
+      "authors": [""],
+      "tags": "🇭🇺, history, literature",
+      "status": "unread",
+      "rating": null,
+      "notes": "<ol><li><input type='checkbox' disabled>A középkor</li><li><input type='checkbox' disabled>A kora újkor</li><li><input type='checkbox' disabled>1640—1830 első rész</li><li><input type='checkbox' disabled>1640—1830 második rész</li><li><input type='checkbox' disabled>A viktoriánus és a modernista időszak</li><li><input type='checkbox' disabled>1930-tól napjainkig első rész</li><li><input type='checkbox' disabled>1930-tól napjainkig második rész</li></ol>"
+    },
+    {
+      "title": "Lingva Latina I",
+      "authors": ["a14"],
+      "tags": "latin, language book",
+      "status": "unread",
+      "rating": null,
+      "notes": "Lingva Latina per se illvstrata pars I Familia Romana"
+    },
+    {
+      "title": "The Prince",
+      "authors": ["a15"],
+      "tags": "politics",
+      "status": "unread",
+      "rating": null,
+      "notes": ""
+    },
+    {
+      "title": "Save the Cat",
+      "authors": ["a16"],
+      "tags": "screenwriting",
+      "status": "unread",
+      "rating": null,
+      "notes": "Save the Cat, The Last Book On Screenwriting That You'll Ever Nedd"
+    },
+    {
+      "title": "In Search of Shakespeare",
+      "authors": ["a17"],
+      "tags": "history, literature",
+      "status": "unread",
+      "rating": null,
+      "notes": ""
+    },
+    {
+      "title": "Flow",
+      "authors": ["a18"],
+      "tags": "psychology",
+      "status": "unread",
+      "rating": null,
+      "notes": "Flow: The Psychology of Optimal Experience"
+    },
+    {
+      "title": "Renaissance People",
+      "authors": ["a19", "a20"],
+      "tags": "history",
+      "status": "unread",
+      "rating": null,
+      "notes": "Renaissance People Lives that Shpaed the Modern Age"
+    },
+    {
+      "title": "Meditations",
+      "authors": ["a21"],
+      "tags": "philosophy, stoicism",
+      "status": "read",
+      "rating": 9.5,
+      "notes": "Translate: Huszti József"
+    },
+    {
+      "title": "Poetics",
+      "authors": ["a12"],
+      "tags": "philosophy, literature, ",
+      "status": "read",
+      "rating": 9,
+      "notes": "<ul><li>How to Tell a Story. Tranlate: Philip Freeman</li></ul>"
+    },
+    {
+      "title": "Paradise Lost",
+      "authors": ["a22"],
+      "tags": "epic, poem",
+      "status": "unread",
+      "rating": null,
+      "notes": "Paradise Lost & Other Poems. (Paradise Regained, Samson Agonistes, On the morning of Christ's Nativity, Lycidas, L'Allegro, Il penseroso. Sonnets: On Shakespeare, On His Being Arrived to the Age of 23, When the Assailt Was Intended to the City, To a Virtuous Young Lady, To the Lady Nergaret Ley, On the Detraction Which Followed Upon My Writing Certain Treatises, On the Same, To Mr. H. Laws, on His Aires, On the religious Memory of Mrs. Thomson, On the Late Massacher in Piemont, On His Blindness (Sonnet XVI or XIX), To Mr. Lawrence, To Cyriak Skinner, To Mr. Cyriack Skinner Upon His Blindness, On His Deceased Wife)"
     }
   ]
 }
