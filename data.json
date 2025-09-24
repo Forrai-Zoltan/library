@@ -125,6 +125,11 @@
       "id": "a24",
       "name": "Charles Darwin",
       "bio": ""
+    },
+    {
+      "id": "a25",
+      "name": "Vincent B. Leitch",
+      "bio": ""
     }
   ],
   "works": [
@@ -242,7 +247,7 @@
     },
     {
       "title": "Az angol irodalom története",
-      "authors": [""],
+      "authors": [],
       "tags": "🇭🇺, history, literature",
       "status": "unread",
       "rating": null,
