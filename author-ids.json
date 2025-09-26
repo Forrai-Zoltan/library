@@ -3,7 +3,8 @@
     "Me": "a0",
     "Aristotle": "a12",
     "J.R.R. Tolkien": "a23",
-    
+    "William Shakespeare": "a27",
+
     "John Dryden": "a1",
     "William Wycherley": "a2",
     "Alexander Pope": "a3",
@@ -26,8 +27,9 @@
     "Marcus Aurelius": "a21",
     "John Milton": "a22",
     "Charles Darwin": "a24",
-    "Vincent B. Leitch": "a25"
-
+    "Vincent B. Leitch": "a25",
+    "F. Scott Fitzgerald": "a26",
+    "Frank Herbert": "a28",
   },
 
   "template-A": {

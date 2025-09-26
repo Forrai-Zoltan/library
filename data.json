@@ -130,6 +130,21 @@
       "id": "a25",
       "name": "Vincent B. Leitch",
       "bio": ""
+    },
+    {
+      "id": "a26",
+      "name": "F. Scott Fitzgerald",
+      "bio": ""
+    },
+    {
+      "id": "a27",
+      "name": "William Shakespeare",
+      "bio": ""
+    },
+    {
+      "id": "a28",
+      "name": "Frank Herbert",
+      "bio": ""
     }
   ],
   "works": [
@@ -385,6 +400,30 @@
       "title": "American Literary Criticism from the Thirties to Eighties",
       "authors": ["a25"],
       "tags": "literary criticism, literature",
+      "status": "unread",
+      "rating": null,
+      "notes": ""
+    },
+    {
+      "title": "The Great Gatsby",
+      "authors": ["a26"],
+      "tags": "novel",
+      "status": "read",
+      "rating": 8,
+      "notes": ""
+    },
+    {
+      "title": "Hamlet",
+      "authors": ["a27"],
+      "tags": "drama, tragedy",
+      "status": "unread",
+      "rating": null,
+      "notes": ""
+    },
+    {
+      "title": "Dune",
+      "authors": ["a28"],
+      "tags": "sci-fi",
       "status": "unread",
       "rating": null,
       "notes": ""
