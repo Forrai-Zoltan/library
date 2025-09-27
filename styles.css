@@ -612,6 +612,15 @@ main {
   }
 }
 
+input[type="checkbox"] {
+  margin: 5px;
+  cursor: default;
+  accent-color: hsl(270, 100%, 50%);
+  position: relative;
+  top: -3px;
+  transform: scale(1.5);
+}
+
 /* ---------- Fog ---------- */
 .fogwrapper {
   opacity: 0;
@@ -623,7 +632,7 @@ main {
   pointer-events: none;
   -webkit-filter: blur(1px) grayscale(0.2) saturate(1.2) sepia(0.2);
   filter: blur(1px) grayscale(0.2) saturate(1.2) sepia(0.2);
-  animation: fadein 5s ease-in forwards;
+  animation: fadein 1s ease-in forwards;
   animation-delay: 0.5s;
 }
 @keyframes fadein {
