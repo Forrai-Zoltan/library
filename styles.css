@@ -688,14 +688,14 @@ input[type="checkbox"] {
 */
 #foglayer_01 .image01,
 #foglayer_01 .image02 {
-  background: url("/cdn/asset/fog1.png") center center/cover no-repeat
+  background: url("/src/asset/fog1.png") center center/cover no-repeat
     transparent;
 }
 #foglayer_02 .image01,
 #foglayer_02 .image02,
 #foglayer_03 .image01,
 #foglayer_03 .image02 {
-  background: url("/cdn/asset/fog2.png") center center/cover no-repeat
+  background: url("/src/asset/fog2.png") center center/cover no-repeat
     transparent;
 }
 

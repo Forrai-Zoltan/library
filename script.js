@@ -1,5 +1,3 @@
-
-
 const popUpBig = document.querySelector(".pop-up-big");
 const recBox = document.querySelector(".rec-box");
 const popupBox = document.querySelector(".pop-up-box");
@@ -226,7 +224,9 @@ function sortTable(table, colIndex) {
   rows.forEach((row) => {
     if (!row.classList.contains("status-read")) {
       row.style.backgroundColor =
-        visibleIndex % 2 === 0 ? "rgba(255,255,255,0.05)" : "rgba(255,255,255,0.0)";
+        visibleIndex % 2 === 0
+          ? "rgba(255,255,255,0.05)"
+          : "rgba(255,255,255,0.0)";
       visibleIndex++;
     } else {
       row.style.backgroundColor = "";
@@ -246,7 +246,7 @@ function sortTable(table, colIndex) {
 }
 
 // Fetch data
-fetch("/library/data.json")
+fetch("/personal/library/data.json")
   .then((res) => res.json())
   .then((data) => {
     // Build author map
