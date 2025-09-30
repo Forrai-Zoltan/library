@@ -145,6 +145,11 @@
       "id": "a28",
       "name": "Frank Herbert",
       "bio": ""
+    },
+    {
+      "id": "a29",
+      "name": "J.K. Rowling",
+      "bio": ""
     }
   ],
   "works": [
@@ -176,7 +181,7 @@
       "title": "The Rape of the Lock",
       "authors": ["a3"],
       "tags": "poem",
-      "status": "unread",
+      "status": "read",
       "rating": null,
       "notes": ""
     },
@@ -425,6 +430,62 @@
       "authors": ["a28"],
       "tags": "sci-fi",
       "status": "unread",
+      "rating": null,
+      "notes": ""
+    },
+    {
+      "title": "Harry Potter and the Philosopher's Stone",
+      "authors": ["a29"],
+      "tags": "fantasy",
+      "status": "reading",
+      "rating": null,
+      "notes": ""
+    },
+    {
+      "title": "Harry Potter and the Chamber of Secrets",
+      "authors": ["a29"],
+      "tags": "fantasy",
+      "status": "reading",
+      "rating": null,
+      "notes": ""
+    },
+    {
+      "title": "Harry Potter and the Prisoner of Azkaban",
+      "authors": ["a29"],
+      "tags": "fantasy",
+      "status": "reading",
+      "rating": null,
+      "notes": ""
+    },
+    {
+      "title": "Harry Potter and the Goblet of Fire",
+      "authors": ["a29"],
+      "tags": "fantasy",
+      "status": "reading",
+      "rating": null,
+      "notes": ""
+    },
+    {
+      "title": "Harry Potter and the Order of the Phoenix",
+      "authors": ["a29"],
+      "tags": "fantasy",
+      "status": "reading",
+      "rating": null,
+      "notes": ""
+    },
+    {
+      "title": "Harry Potter and the Half-Blood Prince",
+      "authors": ["a29"],
+      "tags": "fantasy",
+      "status": "reading",
+      "rating": null,
+      "notes": ""
+    },
+    {
+      "title": "Harry Potter and the Deathly Hallows",
+      "authors": ["a29"],
+      "tags": "fantasy",
+      "status": "reading",
       "rating": null,
       "notes": ""
     }
