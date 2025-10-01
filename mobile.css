@@ -181,6 +181,7 @@
 
   h1 {
     margin-top: 0;
+    font-size: 1.5rem;
   }
 
   .pop-up-big {
@@ -237,10 +238,11 @@
     padding: 0;
   }
 
-  form#recommendtextarea {
+  form#recommend textarea {
     font-size: 0.9rem;
     border-radius: 8px;
     padding: 0.4rem;
+    height: 100px !important;
   }
 
   form#recommend button {
