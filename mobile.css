@@ -295,7 +295,6 @@
     font-size: 0.75rem;
     resize: none;
     outline: none !important;
-
   }
 
   form#Search-bar input::placeholder {
@@ -398,11 +397,11 @@
     background-color: rgb(0, 70, 0) !important;
   }
 
-   #author-table td,
-   #works-table td {
-     max-width: 200px;
-     font-size: 0.75rem;
-   }
+  #author-table td,
+  #works-table td {
+    max-width: 200px;
+    font-size: 0.75rem;
+  }
 
   #author-table {
     width: 99%;
@@ -426,5 +425,11 @@
   #works-table {
     width: 99%;
     border-collapse: collapse;
+  }
+
+  input,
+  textarea,
+  select {
+    font-size: 16px;
   }
 }
