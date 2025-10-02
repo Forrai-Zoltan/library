@@ -208,11 +208,15 @@
     overflow: scroll;
     overflow-y: auto;
     width: 80%;
-    min-height: 60%;
+    min-height: fit-content;
     background: var(--color-gray-800);
     border: var(--glass-border);
     z-index: 500;
     border-radius: 10px;
+  }
+
+  .rec-box p, .rec-box hr  {
+    display: none;
   }
 
   .pop-up-box .close-btn,
