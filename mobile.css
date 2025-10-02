@@ -217,6 +217,10 @@
     border-radius: 10px;
   }
 
+  .rec-box button span {
+    transform: translateY(3px);
+  }
+
   .rec-box p,
   .rec-box hr {
     display: none;
