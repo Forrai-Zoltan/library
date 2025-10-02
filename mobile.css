@@ -230,6 +230,7 @@
   .rec-box .close-btn {
     position: absolute;
     top: 5px;
+    color: orangered;
     right: -10px;
     cursor: pointer;
     z-index: 10;
