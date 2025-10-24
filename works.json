@@ -1,14 +1,6 @@
 {
   "works": [
     {
-      "title": "Information",
-      "authors": ["a0"],
-      "tags": "info, meta",
-      "status": "📌",
-      "rating": null,
-      "notes": "<p>This is my personal reading list. See what I read/reading, what I thought about it. Recommend me good stuff.</p> <p>You can filter cards by #tags or text, or use <kbd>-</kbd> before a term to exclude items.</p>"
-    },
-    {
       "title": "Mac Flecknoe",
       "authors": ["a1"],
       "tags": "poem, satire",
