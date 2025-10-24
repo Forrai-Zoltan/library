@@ -1,0 +1,154 @@
+{
+  "authors": [
+    {
+      "id": "a0",
+      "name": ".Me",
+      "bio": "(1999—)"
+    },
+    {
+      "id": "a1",
+      "name": "John Dryden",
+      "bio": "(1631–1700)"
+    },
+    {
+      "id": "a2",
+      "name": "William Wycherley",
+      "bio": "(1641–1716)"
+    },
+    {
+      "id": "a3",
+      "name": "Alexander Pope",
+      "bio": "(1688–1744)"
+    },
+    {
+      "id": "a4",
+      "name": "Daniel Defoe",
+      "bio": "(1660–1731)"
+    },
+    {
+      "id": "a5",
+      "name": "Thomas Gray",
+      "bio": "(1716–1771)"
+    },
+    {
+      "id": "a6",
+      "name": "Laurence Sterne",
+      "bio": "(1713–1768)"
+    },
+    {
+      "id": "a7",
+      "name": "William Blake",
+      "bio": "(1757–1827)"
+    },
+    {
+      "id": "a8",
+      "name": "William Wordsworth",
+      "bio": "(1770–1850)"
+    },
+    {
+      "id": "a9",
+      "name": "George Gordon Byron",
+      "bio": "(1788–1824)"
+    },
+    {
+      "id": "a10",
+      "name": "Alfred, Lord Tennyson",
+      "bio": "(1809–1892)"
+    },
+    {
+      "id": "a11",
+      "name": "Robert Browning",
+      "bio": "(1812–1889)"
+    },
+    {
+      "id": "a12",
+      "name": "Aristotle",
+      "bio": ""
+    },
+    {
+      "id": "a13",
+      "name": "Jean Delumeau",
+      "bio": ""
+    },
+    {
+      "id": "a14",
+      "name": "Hans H. Ørberg",
+      "bio": ""
+    },
+    {
+      "id": "a15",
+      "name": "Nicolo Machiavelli",
+      "bio": ""
+    },
+    {
+      "id": "a16",
+      "name": "Blake Snyder",
+      "bio": ""
+    },
+    {
+      "id": "a17",
+      "name": "Michael Wood",
+      "bio": ""
+    },
+    {
+      "id": "a18",
+      "name": "Mihaly Csikszentmihaly",
+      "bio": ""
+    },
+    {
+      "id": "a19",
+      "name": "Robert C. Davis",
+      "bio": ""
+    },
+    {
+      "id": "a20",
+      "name": "Beth Lindsmith",
+      "bio": ""
+    },
+    {
+      "id": "a21",
+      "name": "Marcus Aurelius",
+      "bio": ""
+    },
+    {
+      "id": "a22",
+      "name": "John Milton",
+      "bio": ""
+    },
+    {
+      "id": "a23",
+      "name": "J.R.R. Tolkien",
+      "bio": ""
+    },
+    {
+      "id": "a24",
+      "name": "Charles Darwin",
+      "bio": ""
+    },
+    {
+      "id": "a25",
+      "name": "Vincent B. Leitch",
+      "bio": ""
+    },
+    {
+      "id": "a26",
+      "name": "F. Scott Fitzgerald",
+      "bio": ""
+    },
+    {
+      "id": "a27",
+      "name": "William Shakespeare",
+      "bio": ""
+    },
+    {
+      "id": "a28",
+      "name": "Frank Herbert",
+      "bio": ""
+    },
+    {
+      "id": "a29",
+      "name": "J.K. Rowling",
+      "bio": ""
+    }
+  ]
+}

@@ -245,23 +245,25 @@ function sortTable(table, colIndex) {
   });
 }
 
-// Fetch data
-fetch("/personal/library/data.json")
-  .then((res) => res.json())
-  .then((data) => {
+// Fetch authors and works data separately
+Promise.all([
+  fetch("/personal/library/authors.json").then((res) => res.json()),
+  fetch("/personal/library/works.json").then((res) => res.json())
+])
+  .then(([authorsData, worksData]) => {
     // Build author map
     const authorsMap = {};
-    data.authors.forEach((a) => {
+    authorsData.authors.forEach((a) => {
       authorsMap[a.id] = a;
     });
     window._authorsMap = authorsMap;
 
     // Store works globally
-    allWorks = data.works;
+    allWorks = worksData.works;
 
     // Populate authors table
     const authorTableBody = document.querySelector("#author-table tbody");
-    data.authors.forEach((author, index) => {
+    authorsData.authors.forEach((author, index) => {
       const row = document.createElement("tr");
       const td = document.createElement("td");
       const a = document.createElement("a");
@@ -293,7 +295,6 @@ fetch("/personal/library/data.json")
           sortTable(authorTable, index);
         });
       });
-      // Remove any sort indicators initially
       headers.forEach((th) => {
         th.textContent = th.textContent.replace(/\s*[▲▼]$/, "");
       });
@@ -301,7 +302,7 @@ fetch("/personal/library/data.json")
 
     // Populate works table
     const worksTableBody = document.querySelector("#works-table tbody");
-    data.works.forEach((work, index) => {
+    worksData.works.forEach((work, index) => {
       const row = document.createElement("tr");
 
       // Add authorNames array to work for easier display
@@ -309,7 +310,6 @@ fetch("/personal/library/data.json")
         (id) => authorsMap[id]?.name || id
       );
 
-      // Remove inline backgroundColor and add class for read status
       if (work.status?.toLowerCase() === "read") {
         row.classList.add("status-read");
       }
@@ -361,13 +361,12 @@ fetch("/personal/library/data.json")
           sortTable(worksTable, index);
         });
       });
-      // Remove any sort indicators initially
       headers.forEach((th) => {
         th.textContent = th.textContent.replace(/\s*[▲▼]$/, "");
       });
     }
   })
-  .catch((err) => console.error("Error loading data.json:", err));
+  .catch((err) => console.error("Error loading authors.json or works.json:", err));
 
 // Table Search Filter
 const searchInput = document.getElementById("Search");
