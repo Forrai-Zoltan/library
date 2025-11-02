@@ -36,8 +36,8 @@
       "title": "Elegy Written in a Country Churchyard",
       "authors": ["a5"],
       "tags": "poem",
-      "status": "unread",
-      "rating": null,
+      "status": "read",
+      "rating": 7,
       "notes": ""
     },
     {
@@ -52,16 +52,16 @@
       "title": "The Tyger",
       "authors": ["a7"],
       "tags": "poem",
-      "status": "unread",
-      "rating": null,
+      "status": "read",
+      "rating": 7,
       "notes": ""
     },
     {
       "title": "The Lamb",
       "authors": ["a7"],
       "tags": "poem",
-      "status": "unread",
-      "rating": null,
+      "status": "read",
+      "rating": 7,
       "notes": ""
     },
     {
@@ -326,6 +326,22 @@
       "tags": "fantasy",
       "status": "reading",
       "rating": null,
+      "notes": ""
+    },
+    {
+      "title": "Infinite Jest",
+      "authors": ["a30"],
+      "tags": "",
+      "status": "unread",
+      "rating": null,
+      "notes": ""
+    },
+    {
+      "title": "Vermis",
+      "authors": ["a31"],
+      "tags": "game guide",
+      "status": "read",
+      "rating": 10,
       "notes": ""
     }
   ]

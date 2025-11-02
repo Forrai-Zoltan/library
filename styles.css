@@ -299,6 +299,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 70%;
+    max-width: 1100px;
     min-height: 60%;
     background: var(--color-gray-800);
     border: var(--glass-border);
@@ -309,7 +310,7 @@
       position: absolute;
       color: orangered;
       top: 5px;
-      right: 10px;
+      right: 5px;
       cursor: pointer;
       z-index: 10;
       background: transparent;
