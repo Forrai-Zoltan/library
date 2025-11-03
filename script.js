@@ -419,12 +419,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const rows = Array.from(tbody.querySelectorAll("tr"));
         rows.sort((a, b) => {
-          const aText = a.children[index].textContent.trim().toLowerCase();
-          const bText = b.children[index].textContent.trim().toLowerCase();
+          const aText = a.children[index].textContent.trim();
+          const bText = b.children[index].textContent.trim();
 
-          if (aText < bText) return sortState === "asc" ? -1 : 1;
-          if (aText > bText) return sortState === "asc" ? 1 : -1;
-          return 0;
+          const aNum = parseFloat(aText);
+          const bNum = parseFloat(bText);
+
+          if (!isNaN(aNum) && !isNaN(bNum)) {
+            return sortState === "asc" ? aNum - bNum : bNum - aNum;
+          } else {
+            const aLower = aText.toLowerCase();
+            const bLower = bText.toLowerCase();
+            if (aLower < bLower) return sortState === "asc" ? -1 : 1;
+            if (aLower > bLower) return sortState === "asc" ? 1 : -1;
+            return 0;
+          }
         });
 
         tbody.innerHTML = "";
