@@ -73,6 +73,11 @@ nav {
   top: 0px;
 }
 
+nav a {
+  line-height: 1.2;
+  padding-bottom: 5px;
+}
+
 a {
   color: hsl(210, 90%, 40%);
   text-decoration-thickness: 1px;
@@ -313,7 +318,7 @@ table a,
   color: #c0caf5;
 
   &:hover {
-    color: white;
+    color: rgb(141, 198, 255);
   }
 }
 
