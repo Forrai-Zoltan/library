@@ -388,6 +388,10 @@ tbody tr.read-row:hover {
   display: none;
 }
 
+#info-section-a table {
+  border-collapse: collapse;
+}
+
 /* ---------------------------------------- */
 
 #info-section-b ul {
