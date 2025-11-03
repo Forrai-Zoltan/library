@@ -88,11 +88,9 @@ a:active {
 }
 
 div#switchers {
-  padding: 10px;
-  padding-right: 0;
   gap: 10px;
   background-color: #16161e;
-  height: 50px;
+  height: 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -346,7 +344,7 @@ tbody {
 }
 
 #works-table th:nth-child(5) {
-max-width: 75px;
+  max-width: 75px;
 }
 
 td {
