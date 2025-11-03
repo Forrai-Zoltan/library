@@ -52,6 +52,10 @@ main {
   flex-direction: column;
 }
 
+aside {
+  overflow-y: scroll;
+}
+
 nav,
 header {
   padding: 10px;
@@ -65,6 +69,8 @@ header {
 nav {
   justify-content: space-between;
   align-items: center;
+  position: sticky;
+  top: 0px;
 }
 
 a {
@@ -91,6 +97,10 @@ div#switchers {
   justify-content: space-between;
   align-items: center;
 }
+nav button,
+header button {
+  min-width: 120px;
+}
 
 button {
   height: 100%;
@@ -99,7 +109,6 @@ button {
   border: var(--glass-border);
   border-radius: 5px;
   color: #c0caf5;
-  min-width: 120px;
   cursor: pointer;
   font-size: 0.7rem;
   -webkit-user-select: none;
@@ -198,6 +207,34 @@ form button {
   }
 }
 
+section:not(:has(form)) {
+  position: relative;
+}
+
+section:not(:has(form)) button {
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  color: #52597d;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+
+  &:hover {
+    color: #c0caf5;
+  }
+}
+
+#info-section-a h1,
+#info-section-b h1 {
+  padding-right: 40px;
+}
+
+#info-section-a table {
+  width: 100%;
+  height: auto;
+}
+
 /* ------------------------------------------------------ */
 
 main {
@@ -265,9 +302,14 @@ main table {
     5px 5px 5px 0px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
   margin: 10px;
-  height: auto; /* instead of 100% */
+  height: auto;
   overflow: hidden;
   border-collapse: collapse;
+}
+
+table a,
+.data a {
+  color: #c0caf5;
 }
 
 tr {
@@ -339,8 +381,24 @@ tbody tr.read-row:hover {
   background-color: hsl(120, 40%, 20%) !important;
 }
 
-
-
 .hidden {
   display: none;
+}
+
+/* ---------------------------------------- */
+
+#info-section-b ul {
+  list-style-type: none; /* Removes the bullets */
+  padding-left: 15px;
+  margin: 5px 0;
+}
+
+#info-section-b li {
+  margin: 0;
+  font-size: 0.8rem;
+  color: hsl(230, 21%, 60%);
+}
+
+#info-section-b li .data {
+  color: #c0caf5;
 }

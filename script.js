@@ -1,4 +1,94 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // --- Helper Functions for Info Panels ---
+  function openWorkInfo(workObj) {
+    const infoSectionB = document.getElementById("info-section-b");
+    const titleElem = infoSectionB.querySelector("#b-title");
+    const authorsElem = infoSectionB.querySelector("#b-authors .data");
+    const tagsElem = infoSectionB.querySelector("#b-tags .data");
+    const statusElem = infoSectionB.querySelector("#b-status .data");
+    const ratingElem = infoSectionB.querySelector("#b-rating .data");
+    const notesElem = infoSectionB.querySelector("#b-notes");
+
+    if (titleElem) titleElem.textContent = workObj.title;
+
+    if (authorsElem) {
+      authorsElem.innerHTML = "";
+      workObj.authors.forEach((a, idx) => {
+        const authorName = authorsMap[a] || a;
+        const link = document.createElement("a");
+        link.href = "#";
+        link.textContent = authorName;
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          const authorObj = authorsData.find(aObj => aObj.name === authorName);
+          if (!authorObj) return;
+          openAuthorInfo(authorObj);
+        });
+        authorsElem.appendChild(link);
+        if (idx < workObj.authors.length - 1) authorsElem.appendChild(document.createTextNode(", "));
+      });
+    }
+
+    if (tagsElem) tagsElem.textContent = workObj.tags;
+    if (statusElem) statusElem.textContent = workObj.status;
+    if (ratingElem) ratingElem.textContent = workObj.rating !== null ? workObj.rating : "";
+    if (notesElem) notesElem.innerHTML = workObj.notes || "";
+
+    showOnlySection("info-section-b");
+  }
+
+  function openAuthorInfo(authorObj) {
+    const infoSectionA = document.getElementById("info-section-a");
+    const nameElem = infoSectionA.querySelector("#a-name");
+    const bioElem = infoSectionA.querySelector("#a-bio");
+    const worksTableBody = infoSectionA.querySelector("#a-works tbody");
+
+    if (nameElem) nameElem.textContent = authorObj.name;
+    if (bioElem) bioElem.textContent = authorObj.bio;
+
+    if (worksTableBody) {
+      worksTableBody.innerHTML = "";
+      const filteredWorks = worksData.filter(work => work.authors.includes(authorObj.id));
+      filteredWorks.forEach((work) => {
+        const row = document.createElement("tr");
+        const titleCell = document.createElement("td");
+        const statusCell = document.createElement("td");
+
+        const titleLink = document.createElement("a");
+        titleLink.href = "#";
+        titleLink.textContent = work.title;
+        titleLink.addEventListener("click", (e) => {
+          e.preventDefault();
+          openWorkInfo(work);
+        });
+
+        titleCell.appendChild(titleLink);
+        statusCell.textContent = work.status;
+        row.appendChild(titleCell);
+        row.appendChild(statusCell);
+        worksTableBody.appendChild(row);
+      });
+      updateRowStriping("a-works");
+    }
+
+    showOnlySection("info-section-a");
+  }
+  // Helper to show only a single section by id, hiding the others
+  function showOnlySection(sectionId) {
+    const sections = [
+      "default-section",
+      "recommend-section",
+      "info-section-a",
+      "info-section-b",
+    ];
+    sections.forEach((id) => {
+      const elem = document.getElementById(id);
+      if (elem) {
+        if (id === sectionId) elem.classList.remove("hidden");
+        else elem.classList.add("hidden");
+      }
+    });
+  }
   const btnWorks = document.getElementById("btn-works");
   const btnAuthors = document.getElementById("btn-authors");
   const btnRecommend = document.getElementById("recommend");
@@ -8,10 +98,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let originalRowsMap = {};
   let authorsMap = {};
+  let authorsData = [];
+  let worksData = [];
 
   function updateRowStriping(tableId) {
-    const allRows = Array.from(document.querySelectorAll(`#${tableId} tbody tr`));
-    const visibleRows = allRows.filter(r => r.style.display !== "none");
+    const allRows = Array.from(
+      document.querySelectorAll(`#${tableId} tbody tr`)
+    );
+    const visibleRows = allRows.filter((r) => r.style.display !== "none");
 
     visibleRows.forEach((row, idx) => {
       row.classList.toggle("even", idx % 2 === 1);
@@ -19,7 +113,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Detect "Read" status and apply green background
       const statusCell = row.querySelector("td:nth-child(4)");
-      if (statusCell && statusCell.textContent.trim().toLowerCase() === "read") {
+      if (
+        statusCell &&
+        statusCell.textContent.trim().toLowerCase() === "read"
+      ) {
         row.classList.add("read-row");
       } else {
         row.classList.remove("read-row");
@@ -27,7 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Remove striping and read class from hidden rows
-    allRows.forEach(r => {
+    allRows.forEach((r) => {
       if (r.style.display === "none") {
         r.classList.remove("even", "odd", "read-row");
       }
@@ -84,18 +181,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   btnRecommend.addEventListener("click", () => {
-    const defaultSection = document.getElementById("default-section");
-    const recommendSection = document.getElementById("recommend-section");
-
     btnRecommend.classList.toggle("active-button");
-
     // Toggle visibility between sections
     if (btnRecommend.classList.contains("active-button")) {
-      defaultSection.classList.add("hidden");
-      recommendSection.classList.remove("hidden");
+      showOnlySection("recommend-section");
     } else {
-      recommendSection.classList.add("hidden");
-      defaultSection.classList.remove("hidden");
+      showOnlySection("default-section");
     }
   });
 
@@ -108,8 +199,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const authorTableBody = document.querySelector("#author-table tbody");
         authorTableBody.innerHTML = "";
 
-        // Populate authorsMap
+        // Populate authorsMap and authorsData
         authorsMap = {};
+        authorsData = data.authors;
         data.authors.forEach((author) => {
           authorsMap[author.id] = author.name;
         });
@@ -119,7 +211,12 @@ document.addEventListener("DOMContentLoaded", () => {
           const nameCell = document.createElement("td");
           const bioCell = document.createElement("td");
 
-          nameCell.textContent = author.name;
+          // Create <a> tag for author name linking to '#'
+          const nameLink = document.createElement("a");
+          nameLink.href = "#";
+          nameLink.textContent = author.name;
+          nameCell.appendChild(nameLink);
+
           bioCell.textContent = author.bio;
 
           row.appendChild(nameCell);
@@ -135,11 +232,13 @@ document.addEventListener("DOMContentLoaded", () => {
   // THIS LOADS THE WORKS
 
   function loadWorks() {
-    fetch("/personal/library/works.json")
+    return fetch("/personal/library/works.json")
       .then((response) => response.json())
       .then((data) => {
         const worksTableBody = document.querySelector("#works-table tbody");
         worksTableBody.innerHTML = "";
+
+        worksData = data.works;
 
         data.works.forEach((work) => {
           const row = document.createElement("tr");
@@ -149,9 +248,27 @@ document.addEventListener("DOMContentLoaded", () => {
           const statusCell = document.createElement("td");
           const ratingCell = document.createElement("td");
 
-          titleCell.textContent = work.title;
-          const authorNames = work.authors.map(a => authorsMap[a] || a);
-          authorCell.textContent = authorNames.join(", ");
+          // Create <a> tag for work title linking to '#'
+          const titleLink = document.createElement("a");
+          titleLink.href = "#";
+          titleLink.textContent = work.title;
+          titleCell.appendChild(titleLink);
+
+          // Create <a> tags for each author name linking to '#'
+          const authorLinks = work.authors.map((a) => {
+            const link = document.createElement("a");
+            link.href = "#";
+            link.textContent = authorsMap[a] || a;
+            return link;
+          });
+          // Append author links separated by ", "
+          authorLinks.forEach((link, idx) => {
+            authorCell.appendChild(link);
+            if (idx < authorLinks.length - 1) {
+              authorCell.appendChild(document.createTextNode(", "));
+            }
+          });
+
           tagsCell.textContent = work.tags;
           statusCell.textContent = work.status;
           ratingCell.textContent = work.rating !== null ? work.rating : "";
@@ -171,8 +288,67 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Load authors, then works (so works can use author names)
-  loadAuthors().then(loadWorks);
-  // loadWorks(); // Standalone call removed, now loaded after authors
+  loadAuthors().then(() =>
+    loadWorks().then(() => {
+      // Attach click handler for author links in author-table using event delegation
+      authorTable.addEventListener("click", (event) => {
+        const target = event.target;
+        if (target.tagName === "A") {
+          event.preventDefault();
+          const authorName = target.textContent;
+          const authorObj = authorsData.find((a) => a.name === authorName);
+          if (!authorObj) return;
+          openAuthorInfo(authorObj);
+        }
+      });
+
+      // Attach click handler for both author and title links in works-table using event delegation
+      worksTable.addEventListener("click", (event) => {
+        const target = event.target;
+        if (target.tagName === "A") {
+          event.preventDefault();
+          const row = target.closest("tr");
+          const titleCell = row.children[0];
+          const authorCell = row.children[1];
+          // Check if clicked link is the title link
+          if (titleCell.contains(target)) {
+            // Find the work object by title
+            const workObj = worksData.find(
+              (w) => w.title === target.textContent
+            );
+            if (!workObj) return;
+            openWorkInfo(workObj);
+          } else {
+            // Otherwise, it’s an author link: populate info-section-a
+            const authorName = target.textContent;
+            const authorObj = authorsData.find((a) => a.name === authorName);
+            if (!authorObj) return;
+            openAuthorInfo(authorObj);
+          }
+        }
+      });
+    })
+  );
+
+  // Add close button event listeners for info-section-a and info-section-b
+  const infoSectionA = document.getElementById("info-section-a");
+  const infoSectionB = document.getElementById("info-section-b");
+  if (infoSectionA) {
+    const closeBtnA = infoSectionA.querySelector(".close");
+    if (closeBtnA) {
+      closeBtnA.addEventListener("click", () => {
+        showOnlySection("default-section");
+      });
+    }
+  }
+  if (infoSectionB) {
+    const closeBtnB = infoSectionB.querySelector(".close");
+    if (closeBtnB) {
+      closeBtnB.addEventListener("click", () => {
+        showOnlySection("default-section");
+      });
+    }
+  }
 
   // TABLE SORTING FEATURE
 

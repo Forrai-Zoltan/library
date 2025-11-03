@@ -78,7 +78,67 @@
             <input type="hidden" name="_template" value="box" />
           </form>
         </section>
-        <section id="info-sections" class="hidden"></section>
+        <section id="info-section-a" class="hidden">
+          <h1 id="a-name"></h1>
+          <button class="close">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="35"
+              height="35"
+              viewBox="0 0 30 30"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-x-icon lucide-x">
+              <path d="M18 6 6 18" />
+              <path d="m6 6 12 12" />
+            </svg>
+          </button>
+          <p id="a-bio"></p>
+          <table id="a-works">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </section>
+        <section id="info-section-b" class="hidden">
+          <h1 id="b-title"></h1>
+          <button class="close">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="35"
+              height="35"
+              viewBox="0 0 30 30"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-x-icon lucide-x">
+              <path d="M18 6 6 18" />
+              <path d="m6 6 12 12" />
+            </svg>
+          </button>
+          <ul>
+            <li id="b-authors">
+              <span>Authors: </span><span class="data"></span>
+            </li>
+            <li id="b-tags"><span>Tags: </span><span class="data"></span></li>
+            <li id="b-status">
+              <span></span>Status: <span class="data"></span>
+            </li>
+            <li id="b-rating">
+              <span>Rating: </span><span class="data"></span>
+            </li>
+          </ul>
+          <p id="b-notes"></p>
+        </section>
       </article>
     </aside>
     <main>
