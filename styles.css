@@ -285,6 +285,7 @@ input {
   &:hover {
     background-color: #1e202e;
     outline: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='24' viewBox='0 0 24 24' fill='none' stroke='%2352597d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m21 21-4.34-4.34'/%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3C/svg%3E");
 
     &::placeholder {
       color: #52597d;
@@ -298,8 +299,9 @@ main table {
   background-color: #1e202e;
   box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.17),
     5px 5px 5px 0px rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
+  border-radius: 7px;
   margin: 10px;
+  margin-bottom: 11px;
   height: auto;
   overflow: hidden;
   border-collapse: collapse;
@@ -309,6 +311,10 @@ main table {
 table a,
 .data a {
   color: #c0caf5;
+
+  &:hover {
+    color: white;
+  }
 }
 
 tr {
