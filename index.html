@@ -4,94 +4,68 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Library</title>
+    <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
+    <!-- CSS -->
     <link rel="stylesheet" href="/src/css/variables.css" />
     <link rel="stylesheet" href="/personal/library/styles.css" />
     <link rel="stylesheet" href="/personal/library/mobile.css" />
+    <!-- Mobile Theme -->
     <meta name="theme-color" content="#000000" />
   </head>
   <body>
-    <div class="fogwrapper">
-      <div id="foglayer_01" class="fog">
-        <div class="image01"></div>
-        <div class="image02"></div>
-      </div>
-      <div id="foglayer_02" class="fog">
-        <div class="image01"></div>
-        <div class="image02"></div>
-      </div>
-      <div id="foglayer_03" class="fog">
-        <div class="image01"></div>
-        <div class="image02"></div>
-      </div>
-    </div>
-    <header>
+    <aside>
       <nav>
-        <a id="navigate-back-a" href="/personal/obsessions">
-          <div id="nav-back">
-            <img
-              src="/src/media/img/compressed/socrates-middle-finger.png"
-              alt="" />
-          </div>
-        </a>
-        <div id="view-select">
-          <span class="view-button" data-view="books">Works</span
-          ><span class="view-button active" data-view="authors">Authors</span>
+        <a href="/personal/obsessions">gildrom.com</a>
+        <div id="switchers">
+          <button id="btn-authors" class="">Authors</button>
+          <button id="btn-works" class="active-button">Works</button>
         </div>
-        <a class="rec-link" href="#"
-          >Recommend<span style="font-size: 1.6rem">+</span></a
-        >
       </nav>
-      <div id="search-field">
-        <article>
-          <form action="" id="Search-bar">
-            <div>
-              <input
-                autocomplete="off"
-                id="Search"
-                name="filter"
-                type="text"
-                placeholder="Filter..." /><button disabled>
-                <img src="/src/asset/ico/search.svg" alt="" />
-              </button>
-            </div>
-          </form>
-        </article>
-      </div>
-    </header>
-    <div class="pop-up-big">
-      <div class="pop-up-box">
-        <button class="close-btn">X</button>
-        <div class="popup-content"></div>
-      </div>
-      <div class="rec-box">
-        <h1>Got something to recommend?</h1>
-        <button class="close-btn">X</button>
-        <div>
-          <div>
-            <p>
-              If you have anything to recommend, you can do it here, just write
-              it into the box and hit send. Tell me why I should read it, why
-              you like it, what's it about (no spoilers pls). <br />
-              <br />
-              Or, if you know how, you can create an issue or submit a pull
-              request directly on
-              <a href="https://github.com/Forrai-Zoltan/library">GitHub</a>.
-            </p>
-            <hr />
-          </div>
+      <article>
+        <section id="default-section" class="">
+          <h1>Library</h1>
+          <noscript>
+            <p>You will need to enable javascript to view this page.</p>
+          </noscript>
+          <p>
+            This is my personal library where I track what I've read or want to
+            read.
+          </p>
+          <hr />
+          <ul>
+            <li>
+              You can suggent me things to read by clicking the orange recommend
+              button.
+            </li>
+            <li>Choose which table to display with the buttons above.</li>
+            <li>Click on the table headers to sort by row.</li>
+            <li>Use the search bar to filter the results.</li>
+          </ul>
+        </section>
+        <section id="recommend-section" class="hidden">
+          <h2>Recommend</h2>
+          <p>
+            If you have anything to recommend, you can do it here, just write it
+            into the box and hit send. Tell me why I should read it, why you
+            like it, what's it about (no spoilers pls). <br />
+            <br />
+            Or, if you know how, you can create an issue or submit a pull
+            request directly on
+            <a href="https://github.com/Forrai-Zoltan/library">GitHub</a>.
+          </p>
           <form
-            id="recommend"
+            id="recommend-box"
             action="https://formsubmit.co/efcbb6e6922ac428f0bf0a246d5e31f7"
             method="POST">
             <textarea
               id="message"
               name="message"
-              rows="12"
-              placeholder="I'm not reading Twilight no matter how many times you send it Dave!"
+              rows="10"
+              placeholder="I like horror but you can suggest anything."
               autocomplete="off"
               required></textarea>
             <button type="submit"><span>Send</span></button>
@@ -103,35 +77,36 @@
             <input type="hidden" name="_captcha" value="false" />
             <input type="hidden" name="_template" value="box" />
           </form>
-        </div>
-      </div>
-    </div>
+        </section>
+        <section id="info-sections" class="hidden"></section>
+      </article>
+    </aside>
     <main>
-      <div id="authors-content">
-        <table id="author-table">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Bio</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
-      </div>
-      <div id="books-content" style="display: none">
-        <table id="works-table">
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Authors</th>
-              <th>Tags</th>
-              <th style="min-width: 90px">Status</th>
-              <th style="min-width: 95px">Rating</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
-      </div>
+      <header>
+        <button id="recommend">Recommend</button>
+        <input type="search" placeholder="Filter..." />
+      </header>
+      <table id="author-table" class="hidden">
+        <thead>
+          <tr>
+            <th>Author Name</th>
+            <th>Bio</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <table id="works-table" class="">
+        <thead>
+          <tr>
+            <th>Work Title</th>
+            <th>Author</th>
+            <th>Tags</th>
+            <th>Status</th>
+            <th>Rating</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
     </main>
   </body>
   <script src="/personal/library/script.js"></script>

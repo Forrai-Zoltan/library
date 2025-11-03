@@ -1,376 +1,269 @@
-const popUpBig = document.querySelector(".pop-up-big");
-const recBox = document.querySelector(".rec-box");
-const popupBox = document.querySelector(".pop-up-box");
-const popupContent = popupBox.querySelector(".popup-content");
-const closeBtns = document.querySelectorAll(".pop-up-big .close-btn");
-const recommendLink = document.querySelector(".rec-link");
+document.addEventListener("DOMContentLoaded", () => {
+  const btnWorks = document.getElementById("btn-works");
+  const btnAuthors = document.getElementById("btn-authors");
+  const btnRecommend = document.getElementById("recommend");
+  const authorTable = document.getElementById("author-table");
+  const worksTable = document.getElementById("works-table");
+  const searchInput = document.querySelector('input[type="search"]');
 
-// Store works globally for building author corpus
-let allWorks = [];
+  let originalRowsMap = {};
+  let authorsMap = {};
 
-// Show/hide rec-box
-function showPopup() {
-  popUpBig.style.display = "block";
-  recBox.style.display = "block";
-  document.body.style.overflow = "hidden";
-}
-function hidePopup() {
-  popUpBig.style.display = "none";
-  recBox.style.display = "none";
-  popupBox.style.display = "none";
-  document.body.style.overflow = "";
-}
+  function updateRowStriping(tableId) {
+    const allRows = Array.from(document.querySelectorAll(`#${tableId} tbody tr`));
+    const visibleRows = allRows.filter(r => r.style.display !== "none");
 
-// Info popup
-function showInfoPopup(item, type = "author") {
-  popupContent.innerHTML = "";
+    visibleRows.forEach((row, idx) => {
+      row.classList.toggle("even", idx % 2 === 1);
+      row.classList.toggle("odd", idx % 2 === 0);
 
-  if (type === "author") {
-    // Author name as H1
-    const h1 = document.createElement("h1");
-    h1.textContent = item.name;
-    popupContent.appendChild(h1);
-
-    if (item.bio) {
-      const pBio = document.createElement("p");
-      pBio.textContent = item.bio;
-      popupContent.appendChild(pBio);
-    }
-
-    // Build corpus table if there are works
-    const authorWorks = allWorks.filter((w) =>
-      (w.authors || []).includes(item.id)
-    );
-    if (authorWorks.length > 0) {
-      // Add "Corpus" heading
-      const corpusH2 = document.createElement("h2");
-      corpusH2.textContent = "Corpus";
-      popupContent.appendChild(corpusH2);
-
-      const table = document.createElement("table");
-      table.style.width = "100%";
-      table.style.borderCollapse = "collapse";
-
-      const thead = document.createElement("thead");
-      const trHead = document.createElement("tr");
-      ["Title", "Tags", "Status", "Rating"].forEach((thText) => {
-        const th = document.createElement("th");
-        th.textContent = thText;
-        th.style.padding = "5px 10px";
-        th.style.textAlign = "left"; // left justify headers
-        trHead.appendChild(th);
-      });
-      thead.appendChild(trHead);
-      table.appendChild(thead);
-
-      const tbody = document.createElement("tbody");
-      authorWorks.forEach((work, index) => {
-        const tr = document.createElement("tr");
-        // Remove inline backgroundColor and add class for read status
-        if (work.status?.toLowerCase() === "read") {
-          tr.classList.add("status-read");
-        }
-
-        const tdTitle = document.createElement("td");
-        const titleLink = document.createElement("a");
-        titleLink.href = "#";
-        titleLink.textContent = work.title;
-        titleLink.addEventListener("click", (e) => {
-          e.preventDefault();
-          showInfoPopup(work, "work");
-        });
-        tdTitle.appendChild(titleLink);
-        tdTitle.style.padding = "5px 10px";
-        tr.appendChild(tdTitle);
-
-        const tdTags = document.createElement("td");
-        tdTags.textContent = work.tags || "";
-        tdTags.style.padding = "5px 10px";
-        tr.appendChild(tdTags);
-
-        const tdStatus = document.createElement("td");
-        tdStatus.textContent = work.status || "";
-        tdStatus.style.padding = "5px 10px";
-        tr.appendChild(tdStatus);
-
-        const tdRating = document.createElement("td");
-        tdRating.textContent =
-          work.rating !== null && work.rating !== undefined ? work.rating : "";
-        tdRating.style.padding = "5px 10px";
-        tr.appendChild(tdRating);
-
-        tbody.appendChild(tr);
-      });
-      table.appendChild(tbody);
-      popupContent.appendChild(table);
-    }
-  } else if (type === "work") {
-    // Title as h1
-    const h1 = document.createElement("h1");
-    h1.textContent = item.title || "";
-    popupContent.appendChild(h1);
-
-    // Authors as clickable links
-    const divAuthors = document.createElement("div");
-    const strongAuthors = document.createElement("strong");
-    strongAuthors.textContent = "Authors: ";
-    divAuthors.appendChild(strongAuthors);
-    (item.authors || []).forEach((id, i) => {
-      const author = window._authorsMap[id];
-      if (author) {
-        const a = document.createElement("a");
-        a.href = "#";
-        a.textContent = author.name;
-        a.addEventListener("click", (e) => {
-          e.preventDefault();
-          showInfoPopup(author, "author");
-        });
-        divAuthors.appendChild(a);
-        if (i < item.authors.length - 1)
-          divAuthors.appendChild(document.createTextNode(", "));
+      // Detect "Read" status and apply green background
+      const statusCell = row.querySelector("td:nth-child(4)");
+      if (statusCell && statusCell.textContent.trim().toLowerCase() === "read") {
+        row.classList.add("read-row");
+      } else {
+        row.classList.remove("read-row");
       }
     });
-    popupContent.appendChild(divAuthors);
 
-    // key-value pairs for other fields except title and notes and authors
-    const fields = [
-      ["Tags", item.tags],
-      ["Status", item.status],
-      ["Rating", item.rating ?? ""],
-    ];
-    fields.forEach(([key, value]) => {
-      const div = document.createElement("div");
-      const strong = document.createElement("strong");
-      strong.textContent = key + ": ";
-      div.appendChild(strong);
-      div.appendChild(document.createTextNode(value));
-      popupContent.appendChild(div);
+    // Remove striping and read class from hidden rows
+    allRows.forEach(r => {
+      if (r.style.display === "none") {
+        r.classList.remove("even", "odd", "read-row");
+      }
     });
-
-    if (item.notes) {
-      const notesP = document.createElement("p");
-      notesP.innerHTML = item.notes; // render HTML from JSON
-      popupContent.appendChild(notesP);
-    }
   }
 
-  popUpBig.style.display = "block";
-  popupBox.style.display = "block";
-  document.body.style.overflow = "hidden";
-}
+  function saveOriginalOrder(tableId, tbody) {
+    originalRowsMap[tableId] = Array.from(tbody.querySelectorAll("tr"));
+  }
 
-// Event listeners
-if (recommendLink)
-  recommendLink.addEventListener("click", (e) => {
-    e.preventDefault();
-    showPopup();
-  });
-closeBtns.forEach((btn) => btn.addEventListener("click", hidePopup));
-popUpBig.addEventListener("click", (e) => {
-  if (e.target === popUpBig) hidePopup();
-});
+  function restoreOriginalOrder(tableId, tbody) {
+    const originalRows = originalRowsMap[tableId];
+    if (!originalRows) return;
+    tbody.innerHTML = "";
+    originalRows.forEach((row) => tbody.appendChild(row));
+  }
 
-// View switching
-const viewButtons = document.querySelectorAll(".view-button");
-function setActiveView(view) {
-  viewButtons.forEach((btn) =>
-    btn.classList.toggle("active", btn.dataset.view === view)
-  );
-  document.querySelector("#books-content").style.display =
-    view === "books" ? "block" : "none";
-  document.querySelector("#authors-content").style.display =
-    view === "authors" ? "block" : "none";
-}
-let currentView = localStorage.getItem("currentView") || "authors";
-setActiveView(currentView);
-viewButtons.forEach((btn) =>
-  btn.addEventListener("click", () => {
-    const view = btn.dataset.view;
-    setActiveView(view);
-    localStorage.setItem("currentView", view);
-  })
-);
-function sortTable(table, colIndex) {
-  const tbody = table.tBodies[0];
-  const rows = Array.from(tbody.rows);
-  if (!table._sortDirections) table._sortDirections = {};
+  btnWorks.addEventListener("click", () => {
+    btnWorks.classList.toggle("active-button");
 
-  // Always start alphabetical (asc) on first click
-  const currentDirection = table._sortDirections[colIndex] || "desc";
-
-  // Toggle direction
-  const newDirection = currentDirection === "asc" ? "desc" : "asc";
-  table._sortDirections[colIndex] = newDirection;
-
-  rows.sort((a, b) => {
-    let aText = a.cells[colIndex]?.textContent.trim().toLowerCase() || "";
-    let bText = b.cells[colIndex]?.textContent.trim().toLowerCase() || "";
-
-    const aNum = parseFloat(aText);
-    const bNum = parseFloat(bText);
-    if (!isNaN(aNum) && !isNaN(bNum)) {
-      aText = aNum;
-      bText = bNum;
-    }
-
-    if (aText < bText) return newDirection === "asc" ? -1 : 1;
-    if (aText > bText) return newDirection === "asc" ? 1 : -1;
-    return 0;
-  });
-
-  rows.forEach((row) => tbody.appendChild(row));
-
-  let visibleIndex = 0;
-  rows.forEach((row) => {
-    if (!row.classList.contains("status-read")) {
-      row.style.backgroundColor =
-        visibleIndex % 2 === 0
-          ? "rgba(255,255,255,0.05)"
-          : "rgba(255,255,255,0.0)";
-      visibleIndex++;
+    if (btnWorks.classList.contains("active-button")) {
+      worksTable.classList.remove("hidden");
     } else {
-      row.style.backgroundColor = "";
+      worksTable.classList.add("hidden");
+    }
+
+    // Ensure at least one active (default to Works)
+    if (
+      !btnWorks.classList.contains("active-button") &&
+      !btnAuthors.classList.contains("active-button")
+    ) {
+      btnWorks.classList.add("active-button");
+      worksTable.classList.remove("hidden");
     }
   });
 
-  const headers = table.querySelectorAll("thead th");
-  headers.forEach((th, i) => {
-    th.textContent = th.textContent.replace(/\s*[▲▼]$/, "");
-    if (i === colIndex) {
-      const arrowSpan = document.createElement("span");
-      arrowSpan.className = "sort-arrow";
-      arrowSpan.textContent = newDirection === "asc" ? "▼" : "▲";
-      th.appendChild(arrowSpan);
+  btnAuthors.addEventListener("click", () => {
+    btnAuthors.classList.toggle("active-button");
+
+    if (btnAuthors.classList.contains("active-button")) {
+      authorTable.classList.remove("hidden");
+    } else {
+      authorTable.classList.add("hidden");
+    }
+
+    // Ensure at least one active (default to Works)
+    if (
+      !btnWorks.classList.contains("active-button") &&
+      !btnAuthors.classList.contains("active-button")
+    ) {
+      btnWorks.classList.add("active-button");
+      worksTable.classList.remove("hidden");
     }
   });
-}
 
-// Fetch authors and works data separately
-Promise.all([
-  fetch("/personal/library/authors.json").then((res) => res.json()),
-  fetch("/personal/library/works.json").then((res) => res.json())
-])
-  .then(([authorsData, worksData]) => {
-    // Build author map
-    const authorsMap = {};
-    authorsData.authors.forEach((a) => {
-      authorsMap[a.id] = a;
-    });
-    window._authorsMap = authorsMap;
+  btnRecommend.addEventListener("click", () => {
+    const defaultSection = document.getElementById("default-section");
+    const recommendSection = document.getElementById("recommend-section");
 
-    // Store works globally
-    allWorks = worksData.works;
+    btnRecommend.classList.toggle("active-button");
 
-    // Populate authors table
-    const authorTableBody = document.querySelector("#author-table tbody");
-    authorsData.authors.forEach((author, index) => {
-      const row = document.createElement("tr");
-      const td = document.createElement("td");
-      const a = document.createElement("a");
-      a.href = "#";
-      a.textContent = author.name;
-      a.addEventListener("click", (e) => {
-        e.preventDefault();
-        showInfoPopup(author, "author");
-      });
-      td.appendChild(a);
-      row.appendChild(td);
-
-      const bioTd = document.createElement("td");
-      bioTd.textContent = author.bio || "";
-      row.appendChild(bioTd);
-
-      row.style.backgroundColor =
-        index % 2 === 0 ? "rgba(255,255,255,0.05)" : "rgba(255,255,255,0.0)";
-      authorTableBody.appendChild(row);
-    });
-
-    // Add sorting to author table headers
-    const authorTable = document.querySelector("#author-table");
-    if (authorTable) {
-      const headers = authorTable.querySelectorAll("thead th");
-      headers.forEach((th, index) => {
-        th.style.cursor = "pointer";
-        th.addEventListener("click", () => {
-          sortTable(authorTable, index);
-        });
-      });
-      headers.forEach((th) => {
-        th.textContent = th.textContent.replace(/\s*[▲▼]$/, "");
-      });
+    // Toggle visibility between sections
+    if (btnRecommend.classList.contains("active-button")) {
+      defaultSection.classList.add("hidden");
+      recommendSection.classList.remove("hidden");
+    } else {
+      recommendSection.classList.add("hidden");
+      defaultSection.classList.remove("hidden");
     }
+  });
 
-    // Populate works table
-    const worksTableBody = document.querySelector("#works-table tbody");
-    worksData.works.forEach((work, index) => {
-      const row = document.createElement("tr");
+  // THIS LOADS THE AUTHORS
 
-      // Add authorNames array to work for easier display
-      work.authorNames = (work.authors || []).map(
-        (id) => authorsMap[id]?.name || id
-      );
+  function loadAuthors() {
+    return fetch("/personal/library/authors.json")
+      .then((response) => response.json())
+      .then((data) => {
+        const authorTableBody = document.querySelector("#author-table tbody");
+        authorTableBody.innerHTML = "";
 
-      if (work.status?.toLowerCase() === "read") {
-        row.classList.add("status-read");
-      }
-
-      const titleCell = document.createElement("td");
-      const titleLink = document.createElement("a");
-      titleLink.href = "#";
-      titleLink.textContent = work.title;
-      titleLink.addEventListener("click", (e) => {
-        e.preventDefault();
-        showInfoPopup(work, "work");
-      });
-      titleCell.appendChild(titleLink);
-      row.appendChild(titleCell);
-
-      const authorsCell = document.createElement("td");
-      work.authorNames.forEach((name, i) => {
-        const a = document.createElement("a");
-        a.href = "#";
-        a.textContent = name;
-        a.addEventListener("click", (e) => {
-          e.preventDefault();
-          showInfoPopup(authorsMap[work.authors[i]], "author");
+        // Populate authorsMap
+        authorsMap = {};
+        data.authors.forEach((author) => {
+          authorsMap[author.id] = author.name;
         });
-        authorsCell.appendChild(a);
-        if (i < work.authorNames.length - 1)
-          authorsCell.appendChild(document.createTextNode(", "));
-      });
-      row.appendChild(authorsCell);
 
-      ["tags", "status", "rating"].forEach((field) => {
-        const td = document.createElement("td");
-        td.textContent = work[field] ?? "";
-        row.appendChild(td);
-      });
+        data.authors.forEach((author) => {
+          const row = document.createElement("tr");
+          const nameCell = document.createElement("td");
+          const bioCell = document.createElement("td");
 
-      row.style.backgroundColor =
-        index % 2 === 0 ? "rgba(255,255,255,0.05)" : "rgba(255,255,255,0.0)";
-      worksTableBody.appendChild(row);
+          nameCell.textContent = author.name;
+          bioCell.textContent = author.bio;
+
+          row.appendChild(nameCell);
+          row.appendChild(bioCell);
+          authorTableBody.appendChild(row);
+        });
+        saveOriginalOrder("author-table", authorTableBody);
+        updateRowStriping("author-table");
+      })
+      .catch((error) => console.error("Error loading authors:", error));
+  }
+
+  // THIS LOADS THE WORKS
+
+  function loadWorks() {
+    fetch("/personal/library/works.json")
+      .then((response) => response.json())
+      .then((data) => {
+        const worksTableBody = document.querySelector("#works-table tbody");
+        worksTableBody.innerHTML = "";
+
+        data.works.forEach((work) => {
+          const row = document.createElement("tr");
+          const titleCell = document.createElement("td");
+          const authorCell = document.createElement("td");
+          const tagsCell = document.createElement("td");
+          const statusCell = document.createElement("td");
+          const ratingCell = document.createElement("td");
+
+          titleCell.textContent = work.title;
+          const authorNames = work.authors.map(a => authorsMap[a] || a);
+          authorCell.textContent = authorNames.join(", ");
+          tagsCell.textContent = work.tags;
+          statusCell.textContent = work.status;
+          ratingCell.textContent = work.rating !== null ? work.rating : "";
+
+          row.appendChild(titleCell);
+          row.appendChild(authorCell);
+          row.appendChild(tagsCell);
+          row.appendChild(statusCell);
+          row.appendChild(ratingCell);
+
+          worksTableBody.appendChild(row);
+        });
+        saveOriginalOrder("works-table", worksTableBody);
+        updateRowStriping("works-table");
+      })
+      .catch((error) => console.error("Error loading works:", error));
+  }
+
+  // Load authors, then works (so works can use author names)
+  loadAuthors().then(loadWorks);
+  // loadWorks(); // Standalone call removed, now loaded after authors
+
+  // TABLE SORTING FEATURE
+
+  function enableTableSorting(tableId) {
+    const table = document.getElementById(tableId);
+    const headers = table.querySelectorAll("th");
+    const tbody = table.querySelector("tbody");
+    let activeHeader = null;
+
+    headers.forEach((header, index) => {
+      header.dataset.sortState = "none"; // none, asc, desc
+      header.addEventListener("click", () => {
+        // Remove existing sort icons from all headers
+        headers.forEach((hdr) => {
+          const existingIcon = hdr.querySelector(".sort-icon");
+          if (existingIcon) {
+            hdr.removeChild(existingIcon);
+          }
+        });
+
+        // Reset previous sort if new header clicked
+        if (activeHeader && activeHeader !== header) {
+          activeHeader.dataset.sortState = "none";
+        }
+        activeHeader = header;
+
+        let sortState = header.dataset.sortState;
+        if (sortState === "none") sortState = "asc";
+        else if (sortState === "asc") sortState = "desc";
+        else sortState = "none";
+        header.dataset.sortState = sortState;
+
+        if (sortState !== "none") {
+          const icon = document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "svg"
+          );
+          icon.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+          icon.setAttribute("width", "20");
+          icon.setAttribute("height", "20");
+          icon.setAttribute("viewBox", "0 0 24 24");
+          icon.setAttribute("fill", "none");
+          icon.setAttribute("stroke", "currentColor");
+          icon.setAttribute("stroke-width", "2");
+          icon.setAttribute("stroke-linecap", "round");
+          icon.setAttribute("stroke-linejoin", "round");
+          const path = document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "path"
+          );
+          path.setAttribute("d", "m6 9 6 6 6-6");
+          icon.appendChild(path);
+          icon.classList.add("sort-icon");
+
+          if (sortState === "desc") {
+            icon.style.transform = "translateY(-50%) rotate(180deg)";
+            icon.style.transition = "transform 0.2s ease";
+          }
+
+          header.appendChild(icon);
+        }
+
+        if (sortState === "none") {
+          restoreOriginalOrder(tableId, tbody);
+          updateRowStriping(tableId);
+          return;
+        }
+
+        const rows = Array.from(tbody.querySelectorAll("tr"));
+        rows.sort((a, b) => {
+          const aText = a.children[index].textContent.trim().toLowerCase();
+          const bText = b.children[index].textContent.trim().toLowerCase();
+
+          if (aText < bText) return sortState === "asc" ? -1 : 1;
+          if (aText > bText) return sortState === "asc" ? 1 : -1;
+          return 0;
+        });
+
+        tbody.innerHTML = "";
+        rows.forEach((row) => tbody.appendChild(row));
+        updateRowStriping(tableId);
+      });
     });
+  }
 
-    // Add sorting to works table headers
-    const worksTable = document.querySelector("#works-table");
-    if (worksTable) {
-      const headers = worksTable.querySelectorAll("thead th");
-      headers.forEach((th, index) => {
-        th.style.cursor = "pointer";
-        th.addEventListener("click", () => {
-          sortTable(worksTable, index);
-        });
-      });
-      headers.forEach((th) => {
-        th.textContent = th.textContent.replace(/\s*[▲▼]$/, "");
-      });
-    }
-  })
-  .catch((err) => console.error("Error loading authors.json or works.json:", err));
+  // Enable sorting for both tables
+  enableTableSorting("author-table");
+  enableTableSorting("works-table");
 
-// Table Search Filter
-const searchInput = document.getElementById("Search");
-if (searchInput) {
+  // SEARCH FILTER FUNCTIONALITY
+
   searchInput.addEventListener("input", function () {
     const cleanedInput = this.value.replace(/[#,\s]+/g, " ").toLowerCase();
     const rawTokens = cleanedInput
@@ -388,49 +281,41 @@ if (searchInput) {
       }
     });
 
-    const authorRows = document.querySelectorAll("#author-table tbody tr");
-    const workRows = document.querySelectorAll("#works-table tbody tr");
-
-    let matchCount = 0;
-
-    function filterRows(rows) {
+    // Apply filter to both tables
+    [authorTable, worksTable].forEach((table) => {
+      const rows = table.querySelectorAll("tbody tr");
       rows.forEach((row) => {
         const text = row.textContent.toLowerCase();
-        const combined = text;
-
         const includesAll = includeTokens.every((token) =>
-          combined.includes(token)
+          text.includes(token)
         );
         const excludesAll = excludeTokens.every(
-          (token) => !combined.includes(token)
+          (token) => !text.includes(token)
         );
 
         if (includesAll && excludesAll) {
           row.style.display = "";
-          matchCount++;
         } else {
           row.style.display = "none";
         }
       });
-    }
-
-    filterRows(authorRows);
-    filterRows(workRows);
-
-    const noResults = document.getElementById("NoResults");
-    if (noResults) {
-      noResults.style.display = matchCount === 0 ? "block" : "none";
-    }
+      updateRowStriping(table.id);
+    });
   });
-}
 
-function showPopup() {
-  popUpBig.style.display = "block";
-  recBox.style.display = "block";
-
-  // Focus the textarea after showing the pop-up
-  const textarea = document.getElementById("message");
-  if (textarea) textarea.focus();
-
-  document.body.style.overflow = "hidden";
-}
+  const style = document.createElement("style");
+  style.textContent = `
+    .sort-icon {
+      position: absolute;
+      right: 6px;
+      top: 50%;
+      transform: translateY(-50%);
+      transform-origin: center;
+      pointer-events: none;
+      z-index: 2;
+      stroke-width: 3;
+      opacity: 0.9;
+    }
+  `;
+  document.head.appendChild(style);
+});
