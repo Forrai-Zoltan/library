@@ -409,3 +409,8 @@ tbody tr.read-row:hover {
 #info-section-b li .data {
   color: #c0caf5;
 }
+
+h1#b-title,
+h1#a-name {
+  font-size: 1.5rem !important;
+}
