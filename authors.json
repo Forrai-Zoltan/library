@@ -1,88 +1,10 @@
 {
   "authors": [
     {
-      "id": "a1",
-      "name": "John Dryden",
+      "id": "a16",
+      "name": "Blake Snyder",
       "corpus": "",
-      "bio": "<img src='https://upload.wikimedia.org/wikipedia/commons/e/e1/John_Dryden_portrait_painting.jpg' alt='John Dryden'><a href='https://en.wikipedia.org/wiki/John_Dryden'>John Dryden</a> (1631–1700) was an English poet, literary critic, translator, and playwright who in 1668 was appointed England's first Poet Laureate."
-    },
-    {
-      "id": "a2",
-      "name": "William Wycherley",
-      "corpus": "",
-      "bio": "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/William_Wycherley_by_Sir_Peter_Lely.jpg/1024px-William_Wycherley_by_Sir_Peter_Lely.jpg' alt='William Wycherley'><a href='https://en.wikipedia.org/wiki/William_Wycherley'>William Wycherley</a> (1641–1716) was an English dramatist of the Restoration period, best known for his satirical comedies that critique the manners and morals of his time."
-    },
-    {
-      "id": "a3",
-      "name": "Alexander Pope",
-      "corpus": "",
-      "bio": "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Alexander_Pope_by_Michael_Dahl.jpg/1024px-Alexander_Pope_by_Michael_Dahl.jpg' alt='Alexander Pope'><a href='https://en.wikipedia.org/wiki/Alexander_Pope'>Alexander Pope</a> (1688–1744) was an English poet, translator, and satirist of the Enlightenment era. An exponent of Augustan literature, Pope is best known for his satirical poetry and translations of Homer."
-    },
-    {
-      "id": "a4",
-      "name": "Daniel Defoe",
-      "corpus": "",
-      "bio": "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Daniel_Defoe_Kneller_Style.jpg/1024px-Daniel_Defoe_Kneller_Style.jpg' alt='Daniel Defoe'><a href='https://en.wikipedia.org/wiki/Daniel_Defoe'>Daniel Defoe</a> (1660–1731) was an English writer, merchant and spy. He has been seen as one of the earliest proponents of the English novel, and helped to popularise the form in Britain."
-    },
-    {
-      "id": "a5",
-      "name": "Thomas Gray",
-      "corpus": "",
-      "bio": "<img src='https://upload.wikimedia.org/wikipedia/commons/9/9b/PortraitThomasGrayByJohnGilesEccart1747to1748.jpg' alt='Thomas Gray'><a href='https://en.wikipedia.org/wiki/Thomas_Gray'>Thomas Gray</a> (1716–1771) was an English poet, letter-writer, and classical scholar. Gray was a self-critical writer who published only 13 poems in his lifetime, despite being very popular. He was even offered the position of Poet Laureate in 1757 though he declined."
-    },
-    {
-      "id": "a6",
-      "name": "Laurence Sterne",
-      "corpus": "",
-      "bio": "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Laurence_Sterne_by_Sir_Joshua_Reynolds.jpg/800px-Laurence_Sterne_by_Sir_Joshua_Reynolds.jpg' alt='Laurence Sterne'><a href='https://en.wikipedia.org/wiki/Laurence_Sterne'>Laurence Sterne</a> (1713–1768) was an Irish novelist and an Anglican clergyman. He is best known for his novel \"Tristram Shandy\", which is considered one of the great comic masterpieces of English literature."
-    },
-    {
-      "id": "a7",
-      "name": "William Blake",
-      "corpus": "",
-      "bio": "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/William_Blake_by_Thomas_Phillips.jpg/800px-William_Blake_by_Thomas_Phillips.jpg' alt='William Blake'><a href='https://en.wikipedia.org/wiki/William_Blake'>William Blake</a> (1757–1827) was an English poet, painter, and printmaker. Largely unrecognized during his lifetime, Blake is now considered a seminal figure in the history of the poetry and visual arts of the Romantic Age."
-    },
-    {
-      "id": "a8",
-      "name": "William Wordsworth",
-      "corpus": "",
-      "bio": "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Wordsworth_on_Helvellyn_by_Benjamin_Robert_Haydon.jpg/800px-Wordsworth_on_Helvellyn_by_Benjamin_Robert_Haydon.jpg' alt='William Wordsworth'><a href='https://en.wikipedia.org/wiki/William_Wordsworth'>William Wordsworth</a> (1770–1850) was an English poet who helped to launch the Romantic Age in English literature. He is best known for his nature poetry and his emphasis on emotion and individual experience."
-    },
-    {
-      "id": "a9",
-      "name": "George Gordon Byron",
-      "corpus": "",
-      "bio": "<img src='https://upload.wikimedia.org/wikipedia/commons/3/3c/Byron_1813_by_Phillips.jpg' alt='George Gordon Byron'><a href='https://en.wikipedia.org/wiki/Lord_Byron'>George Gordon Byron</a> (1788–1824) was a British poet, a leading figure in the Romantic movement. He is best known for his flamboyant style and exploration of themes like love, nature, and individualism."
-    },
-    {
-      "id": "a10",
-      "name": "Alfred, Lord Tennyson",
-      "corpus": "",
-      "bio": "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Alfred%2C_Lord_Tennyson_by_Elliott_%26_Fry_-_Original.jpg/800px-Alfred%2C_Lord_Tennyson_by_Elliott_%26_Fry_-_Original.jpg' alt='Alfred, Lord Tennyson'><a href='https://en.wikipedia.org/wiki/Alfred,_Lord_Tennyson'>Alfred, Lord Tennyson</a> (1809–1892) was an English poet. He was Poet Laureate of the United Kingdom during much of Queen Victoria's reign."
-    },
-    {
-      "id": "a11",
-      "name": "Robert Browning",
-      "corpus": "",
-      "bio": "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Robert_Browning_by_Herbert_Rose_Barraud%2C_circa_1888.jpg/800px-Robert_Browning_by_Herbert_Rose_Barraud%2C_circa_1888.jpg' alt='Robert Browning'><a href='https://en.wikipedia.org/wiki/Robert_Browning'>Robert Browning</a> (1812–1889) was an English poet and playwright. He was noted for irony, characterization, dark humour, social commentary, historical settings and challenging vocabulary and syntax. "
-    },
-    {
-      "id": "a12",
-      "name": "Aristotle",
-      "corpus": "",
-      "bio": "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Aristotle_Altemps_Inv8575.jpg/800px-Aristotle_Altemps_Inv8575.jpg' alt='Aristotle'><a href='https://en.wikipedia.org/wiki/Aristotle'>Aristotle</a> (384–322 BC) was an ancient Greek philosopher and polymath. His writings cover a broad range of subjects. He set the groundwork for the development of modern science. "
-    },
-    {
-      "id": "a13",
-      "name": "Jean Delumeau",
-      "corpus": "",
-      "bio": "<img src='' alt=''><a href='https://en.wikipedia.org/wiki/Jean_Delumeau'>Jean Léon Marie Delumeau</a> (1923–2020) was a French historian, specializing in the history of the Catholic Church and Western mentalities."
-    },
-    {
-      "id": "a14",
-      "name": "Hans H. Ørberg",
-      "corpus": "",
-      "bio": "<img src='https://upload.wikimedia.org/wikipedia/commons/c/cf/Hans_Henning_%C3%98rberg.jpg' alt='Hans H. Ørberg'><a href='https://en.wikipedia.org/wiki/Hans_%C3%98rberg'>Hans H. Ørberg</a> (1920–2010) was a Danish linguist and educator, best known for his innovative approach to teaching Latin through the natural method, as presented in his book \"Lingua Latina per se Illustrata.\""
+      "bio": "<img src='' alt=''><a href='https://en.wikipedia.org/wiki/Blake_Snyder'>Blake Snyder</a> (1957–2009) was an American screenwriter, consultant, author and educator based in Los Angeles."
     },
     {
       "id": "a15",
@@ -91,10 +13,88 @@
       "bio": "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Portrait_of_Niccol%C3%B2_Machiavelli_by_Santi_di_Tito.jpg/800px-Portrait_of_Niccol%C3%B2_Machiavelli_by_Santi_di_Tito.jpg' alt='Nicolo Machiavelli'><a href='https://en.wikipedia.org/wiki/Niccol%C3%B2_Machiavelli'>Niccolò di Bernardo dei Machiavelli</a> (1469–1527) was a Florentine diplomat, author, philosopher, and historian who lived during the Italian Renaissance. He is regarded as the father of modern political philosophy and political science."
     },
     {
-      "id": "a16",
-      "name": "Blake Snyder",
+      "id": "a14",
+      "name": "Hans H. Ørberg",
       "corpus": "",
-      "bio": "<img src='' alt=''><a href='https://en.wikipedia.org/wiki/Blake_Snyder'>Blake Snyder</a> (1957–2009) was an American screenwriter, consultant, author and educator based in Los Angeles."
+      "bio": "<img src='https://upload.wikimedia.org/wikipedia/commons/c/cf/Hans_Henning_%C3%98rberg.jpg' alt='Hans H. Ørberg'><a href='https://en.wikipedia.org/wiki/Hans_%C3%98rberg'>Hans H. Ørberg</a> (1920–2010) was a Danish linguist and educator, best known for his innovative approach to teaching Latin through the natural method, as presented in his book \"Lingua Latina per se Illustrata.\""
+    },
+    {
+      "id": "a13",
+      "name": "Jean Delumeau",
+      "corpus": "",
+      "bio": "<img src='' alt=''><a href='https://en.wikipedia.org/wiki/Jean_Delumeau'>Jean Léon Marie Delumeau</a> (1923–2020) was a French historian, specializing in the history of the Catholic Church and Western mentalities."
+    },
+    {
+      "id": "a12",
+      "name": "Aristotle",
+      "corpus": "",
+      "bio": "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Aristotle_Altemps_Inv8575.jpg/800px-Aristotle_Altemps_Inv8575.jpg' alt='Aristotle'><a href='https://en.wikipedia.org/wiki/Aristotle'>Aristotle</a> (384–322 BC) was an ancient Greek philosopher and polymath. His writings cover a broad range of subjects. He set the groundwork for the development of modern science. "
+    },
+    {
+      "id": "a11",
+      "name": "Robert Browning",
+      "corpus": "",
+      "bio": "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Robert_Browning_by_Herbert_Rose_Barraud%2C_circa_1888.jpg/800px-Robert_Browning_by_Herbert_Rose_Barraud%2C_circa_1888.jpg' alt='Robert Browning'><a href='https://en.wikipedia.org/wiki/Robert_Browning'>Robert Browning</a> (1812–1889) was an English poet and playwright. He was noted for irony, characterization, dark humour, social commentary, historical settings and challenging vocabulary and syntax. "
+    },
+    {
+      "id": "a10",
+      "name": "Alfred, Lord Tennyson",
+      "corpus": "",
+      "bio": "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Alfred%2C_Lord_Tennyson_by_Elliott_%26_Fry_-_Original.jpg/800px-Alfred%2C_Lord_Tennyson_by_Elliott_%26_Fry_-_Original.jpg' alt='Alfred, Lord Tennyson'><a href='https://en.wikipedia.org/wiki/Alfred,_Lord_Tennyson'>Alfred, Lord Tennyson</a> (1809–1892) was an English poet. He was Poet Laureate of the United Kingdom during much of Queen Victoria's reign."
+    },
+    {
+      "id": "a9",
+      "name": "George Gordon Byron",
+      "corpus": "",
+      "bio": "<img src='https://upload.wikimedia.org/wikipedia/commons/3/3c/Byron_1813_by_Phillips.jpg' alt='George Gordon Byron'><a href='https://en.wikipedia.org/wiki/Lord_Byron'>George Gordon Byron</a> (1788–1824) was a British poet, a leading figure in the Romantic movement. He is best known for his flamboyant style and exploration of themes like love, nature, and individualism."
+    },
+    {
+      "id": "a8",
+      "name": "William Wordsworth",
+      "corpus": "",
+      "bio": "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Wordsworth_on_Helvellyn_by_Benjamin_Robert_Haydon.jpg/800px-Wordsworth_on_Helvellyn_by_Benjamin_Robert_Haydon.jpg' alt='William Wordsworth'><a href='https://en.wikipedia.org/wiki/William_Wordsworth'>William Wordsworth</a> (1770–1850) was an English poet who helped to launch the Romantic Age in English literature. He is best known for his nature poetry and his emphasis on emotion and individual experience."
+    },
+    {
+      "id": "a7",
+      "name": "William Blake",
+      "corpus": "",
+      "bio": "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/William_Blake_by_Thomas_Phillips.jpg/800px-William_Blake_by_Thomas_Phillips.jpg' alt='William Blake'><a href='https://en.wikipedia.org/wiki/William_Blake'>William Blake</a> (1757–1827) was an English poet, painter, and printmaker. Largely unrecognized during his lifetime, Blake is now considered a seminal figure in the history of the poetry and visual arts of the Romantic Age."
+    },
+    {
+      "id": "a6",
+      "name": "Laurence Sterne",
+      "corpus": "",
+      "bio": "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Laurence_Sterne_by_Sir_Joshua_Reynolds.jpg/800px-Laurence_Sterne_by_Sir_Joshua_Reynolds.jpg' alt='Laurence Sterne'><a href='https://en.wikipedia.org/wiki/Laurence_Sterne'>Laurence Sterne</a> (1713–1768) was an Irish novelist and an Anglican clergyman. He is best known for his novel \"Tristram Shandy\", which is considered one of the great comic masterpieces of English literature."
+    },
+    {
+      "id": "a5",
+      "name": "Thomas Gray",
+      "corpus": "",
+      "bio": "<img src='https://upload.wikimedia.org/wikipedia/commons/9/9b/PortraitThomasGrayByJohnGilesEccart1747to1748.jpg' alt='Thomas Gray'><a href='https://en.wikipedia.org/wiki/Thomas_Gray'>Thomas Gray</a> (1716–1771) was an English poet, letter-writer, and classical scholar. Gray was a self-critical writer who published only 13 poems in his lifetime, despite being very popular. He was even offered the position of Poet Laureate in 1757 though he declined."
+    },
+    {
+      "id": "a4",
+      "name": "Daniel Defoe",
+      "corpus": "",
+      "bio": "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Daniel_Defoe_Kneller_Style.jpg/1024px-Daniel_Defoe_Kneller_Style.jpg' alt='Daniel Defoe'><a href='https://en.wikipedia.org/wiki/Daniel_Defoe'>Daniel Defoe</a> (1660–1731) was an English writer, merchant and spy. He has been seen as one of the earliest proponents of the English novel, and helped to popularise the form in Britain."
+    },
+    {
+      "id": "a3",
+      "name": "Alexander Pope",
+      "corpus": "",
+      "bio": "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Alexander_Pope_by_Michael_Dahl.jpg/1024px-Alexander_Pope_by_Michael_Dahl.jpg' alt='Alexander Pope'><a href='https://en.wikipedia.org/wiki/Alexander_Pope'>Alexander Pope</a> (1688–1744) was an English poet, translator, and satirist of the Enlightenment era. An exponent of Augustan literature, Pope is best known for his satirical poetry and translations of Homer."
+    },
+    {
+      "id": "a2",
+      "name": "William Wycherley",
+      "corpus": "",
+      "bio": "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/William_Wycherley_by_Sir_Peter_Lely.jpg/1024px-William_Wycherley_by_Sir_Peter_Lely.jpg' alt='William Wycherley'><a href='https://en.wikipedia.org/wiki/William_Wycherley'>William Wycherley</a> (1641–1716) was an English dramatist of the Restoration period, best known for his satirical comedies that critique the manners and morals of his time."
+    },
+    {
+      "id": "a1",
+      "name": "John Dryden",
+      "corpus": "",
+      "bio": "<img src='https://upload.wikimedia.org/wikipedia/commons/e/e1/John_Dryden_portrait_painting.jpg' alt='John Dryden'><a href='https://en.wikipedia.org/wiki/John_Dryden'>John Dryden</a> (1631–1700) was an English poet, literary critic, translator, and playwright who in 1668 was appointed England's first Poet Laureate."
     },
     {
       "id": "a17",

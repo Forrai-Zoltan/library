@@ -50,10 +50,12 @@ main {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  scrollbar-width: none; 
 }
 
 aside {
-  overflow-y: scroll;
+scrollbar-width: none; 
+overflow-y: scroll;
 }
 
 nav,
