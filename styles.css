@@ -408,7 +408,7 @@ tbody tr.read-row:hover {
 }
 
 #info-section-a img {
-  max-width: 100%;
+  width: 100%;
   border-radius: 10px;
 
 }
@@ -438,7 +438,9 @@ h1#a-name {
   font-size: 1.5rem !important;
 }
 
-
+#a-works {
+  margin-bottom: 15px;
+}
 
 
 tr.selected-row {
@@ -459,4 +461,8 @@ tr.odd.selected-row {
 
 tr.selected-row.read-row {
 background-color: hsl(120, 40%, 20%) !important;
+}
+
+img[src=""] {
+  display: none;
 }

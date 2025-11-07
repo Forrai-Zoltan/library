@@ -539,15 +539,66 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const rows = Array.from(tbody.querySelectorAll("tr"));
         rows.sort((a, b) => {
-          const aText = a.children[index].textContent.trim();
-          const bText = b.children[index].textContent.trim();
-
-          const aNum = parseFloat(aText);
-          const bNum = parseFloat(bText);
-
-          if (!isNaN(aNum) && !isNaN(bNum)) {
-            return sortState === "asc" ? aNum - bNum : bNum - aNum;
+          let aText, bText;
+          
+          // Only strip tags for bio column in author table
+          if (tableId === "author-table" && index === 1) {
+            // Create temporary elements to strip img and a tags
+            const tempA = document.createElement('div');
+            const tempB = document.createElement('div');
+            tempA.innerHTML = a.children[index].innerHTML;
+            tempB.innerHTML = b.children[index].innerHTML;
+            
+            // Remove img and a tags
+            tempA.querySelectorAll('img, a').forEach(el => el.remove());
+            tempB.querySelectorAll('img, a').forEach(el => el.remove());
+            
+            aText = tempA.textContent.trim();
+            bText = tempB.textContent.trim();
           } else {
+            aText = a.children[index].textContent.trim();
+            bText = b.children[index].textContent.trim();
+          }
+
+          // Function to extract date and era from text
+          function extractDate(text) {
+            // Look for numbers followed by BC/BCE
+            const bcMatch = text.match(/(\d+)\s*(?:BC|BCE)/);
+            if (bcMatch) {
+              return { year: parseInt(bcMatch[1], 10), isBC: true };
+            }
+            
+            // Look for regular years (assuming AD/CE if no BC/BCE specified)
+            const yearMatch = text.match(/(\d+)/);
+            if (yearMatch) {
+              return { year: parseInt(yearMatch[1], 10), isBC: false };
+            }
+            
+            return null;
+          }
+
+          const aDate = extractDate(aText);
+          const bDate = extractDate(bText);
+
+          if (aDate && bDate) {
+            if (aDate.isBC && bDate.isBC) {
+              // For BC dates, bigger numbers come first in ascending sort
+              return sortState === "asc" ? 
+                bDate.year - aDate.year : // descending BC numbers for ascending sort
+                aDate.year - bDate.year;  // ascending BC numbers for descending sort
+            } else if (!aDate.isBC && !bDate.isBC) {
+              // For AD dates, smaller numbers come first in ascending sort
+              return sortState === "asc" ? 
+                aDate.year - bDate.year : // ascending AD numbers for ascending sort
+                bDate.year - aDate.year;  // descending AD numbers for descending sort
+            } else {
+              // BC dates always come before AD dates in ascending sort
+              return sortState === "asc" ? 
+                (aDate.isBC ? -1 : 1) :   // BC before AD for ascending sort
+                (aDate.isBC ? 1 : -1);    // AD before BC for descending sort
+            }
+          } else {
+            // If not comparing dates, do alphabetical comparison
             const aLower = aText.toLowerCase();
             const bLower = bText.toLowerCase();
             if (aLower < bLower) return sortState === "asc" ? -1 : 1;
