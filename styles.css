@@ -303,6 +303,7 @@ main table {
   height: auto;
   border-collapse: collapse;
   table-layout: auto;
+  max-width: 100%;
 }
 
 table a,
@@ -312,14 +313,6 @@ table a,
   &:hover {
     color: rgb(141, 198, 255);
   }
-}
-
-tr {
-  height: auto; /* ensures rows don’t stretch */
-}
-
-tbody {
-  height: auto; /* prevents tbody from stretching */
 }
 
 thead {
@@ -355,6 +348,7 @@ td {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  max-width: 700px;
 }
 
 tbody tr.odd {
@@ -390,6 +384,10 @@ tbody tr.read-row:hover {
 }
 
 #author-table br {
+  display: none;
+}
+
+#author-table tbody td:nth-child(2) a {
   display: none;
 }
 /* ---------------------------------------- */
