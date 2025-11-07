@@ -3,156 +3,187 @@
     {
       "id": "a1",
       "name": "John Dryden",
+      "corpus": true,
       "bio": "(1631–1700)"
     },
     {
       "id": "a2",
       "name": "William Wycherley",
+      "corpus": false,
       "bio": "(1641–1716)"
     },
     {
       "id": "a3",
       "name": "Alexander Pope",
+      "corpus": "",
       "bio": "(1688–1744)"
     },
     {
       "id": "a4",
       "name": "Daniel Defoe",
+      "corpus": "",
       "bio": "(1660–1731)"
     },
     {
       "id": "a5",
       "name": "Thomas Gray",
+      "corpus": "",
       "bio": "(1716–1771)"
     },
     {
       "id": "a6",
       "name": "Laurence Sterne",
+      "corpus": "",
       "bio": "(1713–1768)"
     },
     {
       "id": "a7",
       "name": "William Blake",
+      "corpus": "",
       "bio": "(1757–1827)"
     },
     {
       "id": "a8",
       "name": "William Wordsworth",
+      "corpus": "",
       "bio": "(1770–1850)"
     },
     {
       "id": "a9",
       "name": "George Gordon Byron",
+      "corpus": "",
       "bio": "(1788–1824)"
     },
     {
       "id": "a10",
       "name": "Alfred, Lord Tennyson",
+      "corpus": "",
       "bio": "(1809–1892)"
     },
     {
       "id": "a11",
       "name": "Robert Browning",
+      "corpus": "",
       "bio": "(1812–1889)"
     },
     {
       "id": "a12",
       "name": "Aristotle",
+      "corpus": "",
       "bio": ""
     },
     {
       "id": "a13",
       "name": "Jean Delumeau",
+      "corpus": "",
       "bio": ""
     },
     {
       "id": "a14",
       "name": "Hans H. Ørberg",
+      "corpus": "",
       "bio": ""
     },
     {
       "id": "a15",
       "name": "Nicolo Machiavelli",
+      "corpus": "",
       "bio": ""
     },
     {
       "id": "a16",
       "name": "Blake Snyder",
+      "corpus": "",
       "bio": ""
     },
     {
       "id": "a17",
       "name": "Michael Wood",
+      "corpus": "",
       "bio": ""
     },
     {
       "id": "a18",
       "name": "Mihaly Csikszentmihaly",
+      "corpus": "",
       "bio": ""
     },
     {
       "id": "a19",
       "name": "Robert C. Davis",
+      "corpus": "",
       "bio": ""
     },
     {
       "id": "a20",
       "name": "Beth Lindsmith",
+      "corpus": "",
       "bio": ""
     },
     {
       "id": "a21",
       "name": "Marcus Aurelius",
+      "corpus": "",
       "bio": ""
     },
     {
       "id": "a22",
       "name": "John Milton",
+      "corpus": "",
       "bio": ""
     },
     {
       "id": "a23",
       "name": "J.R.R. Tolkien",
+      "corpus": "",
       "bio": ""
     },
     {
       "id": "a24",
       "name": "Charles Darwin",
+      "corpus": "",
       "bio": ""
     },
     {
       "id": "a25",
       "name": "Vincent B. Leitch",
+      "corpus": "",
       "bio": ""
     },
     {
       "id": "a26",
       "name": "F. Scott Fitzgerald",
+      "corpus": "",
       "bio": ""
     },
     {
       "id": "a27",
       "name": "William Shakespeare",
+      "corpus": "",
       "bio": ""
     },
     {
       "id": "a28",
       "name": "Frank Herbert",
+      "corpus": "",
       "bio": ""
     },
     {
       "id": "a29",
       "name": "J.K. Rowling",
+      "corpus": "",
       "bio": ""
     },
     {
       "id": "a30",
       "name": "David Foster Wallace",
+      "corpus": "",
       "bio": ""
     },
     {
       "id": "a31",
       "name": "Plastiboo",
+      "corpus": "",
       "bio": ""
     }
   ]

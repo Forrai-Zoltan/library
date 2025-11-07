@@ -43,16 +43,32 @@ document.addEventListener("DOMContentLoaded", () => {
     const bioElem = infoSectionA.querySelector("#a-bio");
     const worksTableBody = infoSectionA.querySelector("#a-works tbody");
 
-    if (nameElem) nameElem.textContent = authorObj.name;
+    if (nameElem) {
+      // Set author name and append a corpus marker if present
+      nameElem.textContent = authorObj.name;
+      if (authorObj.corpus === true) {
+        // add a small accessible checkmark at the end of the name
+        nameElem.appendChild(document.createTextNode(" "));
+        const mark = document.createElement("span");
+        mark.className = "corpus-mark-inline";
+        mark.textContent = "✓";
+        mark.setAttribute("role", "img");
+        mark.setAttribute("aria-label", "in corpus");
+        nameElem.appendChild(mark);
+      }
+    }
     if (bioElem) bioElem.textContent = authorObj.bio;
+    // Set corpus element if present
+    const corpusElem = infoSectionA.querySelector("#a-corpus");
+    if (corpusElem) corpusElem.textContent = authorObj.corpus;
 
     if (worksTableBody) {
       worksTableBody.innerHTML = "";
       const filteredWorks = worksData.filter(work => work.authors.includes(authorObj.id));
-      filteredWorks.forEach((work) => {
-        const row = document.createElement("tr");
-        const titleCell = document.createElement("td");
-        const statusCell = document.createElement("td");
+  filteredWorks.forEach((work) => {
+  const row = document.createElement("tr");
+  const titleCell = document.createElement("td");
+  const statusCell = document.createElement("td");
 
         const titleLink = document.createElement("a");
         titleLink.href = "#";
@@ -64,15 +80,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
         titleCell.appendChild(titleLink);
         statusCell.textContent = work.status;
+        // If the work status is "read", mark the entire row as read
+        if (String(work.status).trim().toLowerCase() === "read") {
+          row.classList.add("read-row");
+        }
         row.appendChild(titleCell);
         row.appendChild(statusCell);
         worksTableBody.appendChild(row);
       });
       updateRowStriping("a-works");
     }
-
+    
     showOnlySection("info-section-a");
   }
+
+  
   // Helper to show only a single section by id, hiding the others
   function showOnlySection(sectionId) {
     const sections = [
@@ -112,14 +134,16 @@ document.addEventListener("DOMContentLoaded", () => {
       row.classList.toggle("odd", idx % 2 === 0);
 
       // Detect "Read" status and apply green background
-      const statusCell = row.querySelector("td:nth-child(4)");
-      if (
-        statusCell &&
-        statusCell.textContent.trim().toLowerCase() === "read"
-      ) {
-        row.classList.add("read-row");
-      } else {
-        row.classList.remove("read-row");
+      if (tableId === "works-table") {
+        const statusCell = row.querySelector("td:nth-child(4)");
+        if (
+          statusCell &&
+          statusCell.textContent.trim().toLowerCase() === "read"
+        ) {
+          row.classList.add("read-row");
+        } else {
+          row.classList.remove("read-row");
+        }
       }
     });
 
@@ -142,6 +166,10 @@ document.addEventListener("DOMContentLoaded", () => {
     originalRows.forEach((row) => tbody.appendChild(row));
   }
 
+  // Set both buttons as active by default
+  btnWorks.classList.add("active-button");
+  btnAuthors.classList.add("active-button");
+
   btnWorks.addEventListener("click", () => {
     btnWorks.classList.toggle("active-button");
 
@@ -151,7 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
       worksTable.classList.add("hidden");
     }
 
-    // Ensure at least one active (default to Works)
+    // Ensure at least one active
     if (
       !btnWorks.classList.contains("active-button") &&
       !btnAuthors.classList.contains("active-button")
@@ -170,7 +198,7 @@ document.addEventListener("DOMContentLoaded", () => {
       authorTable.classList.add("hidden");
     }
 
-    // Ensure at least one active (default to Works)
+    // Ensure at least one active
     if (
       !btnWorks.classList.contains("active-button") &&
       !btnAuthors.classList.contains("active-button")
@@ -210,6 +238,8 @@ document.addEventListener("DOMContentLoaded", () => {
           const row = document.createElement("tr");
           const nameCell = document.createElement("td");
           const bioCell = document.createElement("td");
+          // create a dedicated corpus cell so it's always present
+          const corpusCell = document.createElement("td");
 
           // Create <a> tag for author name linking to '#'
           const nameLink = document.createElement("a");
@@ -217,10 +247,28 @@ document.addEventListener("DOMContentLoaded", () => {
           nameLink.textContent = author.name;
           nameCell.appendChild(nameLink);
 
-          bioCell.textContent = author.bio;
+          // Bio (may be empty)
+          bioCell.textContent = author.bio || "";
 
+          // Corpus: show a visible checkmark when true and add accessible label
+          const corpusSpan = document.createElement("span");
+          corpusSpan.className = "corpus-mark";
+          if (author.corpus === true) {
+            corpusSpan.textContent = "✓";
+            corpusSpan.setAttribute("aria-label", "in corpus");
+            // mark the row visually as read like works
+            row.classList.add("read-row");
+          } else {
+            corpusSpan.textContent = "";
+            corpusSpan.setAttribute("aria-hidden", "true");
+          }
+          corpusCell.appendChild(corpusSpan);
+
+          // Append cells in the same order as the table header (Name, Bio, Corpus)
           row.appendChild(nameCell);
           row.appendChild(bioCell);
+          row.appendChild(corpusCell);
+
           authorTableBody.appendChild(row);
         });
         saveOriginalOrder("author-table", authorTableBody);
@@ -503,4 +551,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   `;
   document.head.appendChild(style);
+
+
+
 });
+

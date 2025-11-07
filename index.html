@@ -108,6 +108,7 @@
               <path d="m6 6 12 12" />
             </svg>
           </button>
+
           <p id="a-bio"></p>
           <table id="a-works">
             <thead>
@@ -156,16 +157,17 @@
     <main>
       <header>
         <div id="switchers">
-          <button id="btn-authors" class="">Authors</button>
+          <button id="btn-authors" class="active-button">Authors</button>
           <button id="btn-works" class="active-button">Works</button>
         </div>
         <input type="search" placeholder="Filter..." />
       </header>
-      <table id="author-table" class="hidden">
+      <table id="author-table" class="">
         <thead>
           <tr>
             <th>Author Name</th>
             <th>Bio</th>
+            <th>Corpus</th>
           </tr>
         </thead>
         <tbody></tbody>

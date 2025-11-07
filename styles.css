@@ -307,8 +307,8 @@ main table {
   border-radius: 7px;
   margin: 10px;
   margin-bottom: 11px;
-  height: auto;
   overflow: hidden;
+  height: auto;
   border-collapse: collapse;
   table-layout: auto;
 }
@@ -341,6 +341,7 @@ thead {
 
 th {
   position: relative;
+  padding-top: 5px;
   padding-left: 10px;
   padding-right: 28px; /* space for the sort icon */
   text-align: left;
@@ -354,21 +355,14 @@ tbody {
   font-size: 0.7rem;
 }
 
-#works-table th:nth-child(5) {
-  max-width: 75px;
-}
 
 td {
   padding: 4px 8px;
   line-height: 1.2;
   vertical-align: middle;
-}
-
-td {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 200px;
 }
 
 tbody tr.odd {
@@ -402,6 +396,8 @@ tbody tr.read-row:hover {
 #info-section-a table {
   border-collapse: collapse;
 }
+
+
 
 /* ---------------------------------------- */
 
