@@ -350,7 +350,7 @@ td {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 700px;
+  max-width: 500px;
 }
 
 tbody tr.odd {
@@ -392,6 +392,11 @@ tbody tr.read-row:hover {
 #author-table tbody td:nth-child(2) a {
   display: none;
 }
+
+#author-table td:nth-child(2) {
+  padding-right: 100px;
+}
+
 /* ---------------------------------------- */
 
 #info-section-a h1,
