@@ -3,13 +3,13 @@
     {
       "id": "a1",
       "name": "John Dryden",
-      "corpus": true,
-      "bio": "(1631–1700)"
+      "corpus": "",
+      "bio": "<img src='https://upload.wikimedia.org/wikipedia/commons/e/e1/John_Dryden_portrait_painting.jpg' alt='John Dryden'><br>(1631–1700)"
     },
     {
       "id": "a2",
       "name": "William Wycherley",
-      "corpus": false,
+      "corpus": "",
       "bio": "(1641–1716)"
     },
     {

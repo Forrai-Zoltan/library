@@ -9,7 +9,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const ratingElem = infoSectionB.querySelector("#b-rating .data");
     const notesElem = infoSectionB.querySelector("#b-notes");
 
-    if (titleElem) titleElem.textContent = workObj.title;
+  // mark the work row as selected if present
+  selectWorkRowByTitle(workObj.title);
+  if (titleElem) titleElem.textContent = workObj.title;
 
     if (authorsElem) {
       authorsElem.innerHTML = "";
@@ -43,6 +45,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const bioElem = infoSectionA.querySelector("#a-bio");
     const worksTableBody = infoSectionA.querySelector("#a-works tbody");
 
+    // mark the author row as selected
+    selectAuthorRowById(authorObj.id);
+
     if (nameElem) {
       // Set author name and append a corpus marker if present
       nameElem.textContent = authorObj.name;
@@ -57,7 +62,8 @@ document.addEventListener("DOMContentLoaded", () => {
         nameElem.appendChild(mark);
       }
     }
-    if (bioElem) bioElem.textContent = authorObj.bio;
+  // Render bio HTML (authors.json may contain inline HTML)
+  if (bioElem) bioElem.innerHTML = authorObj.bio || "";
     // Set corpus element if present
     const corpusElem = infoSectionA.querySelector("#a-corpus");
     if (corpusElem) corpusElem.textContent = authorObj.corpus;
@@ -166,6 +172,54 @@ document.addEventListener("DOMContentLoaded", () => {
     originalRows.forEach((row) => tbody.appendChild(row));
   }
 
+  // Selection helpers: indicate which row is currently opened
+  function clearSelectedRows() {
+    document.querySelectorAll("tr.selected-row").forEach((r) =>
+      r.classList.remove("selected-row")
+    );
+  }
+
+  function selectAuthorRowById(id) {
+    clearSelectedRows();
+    if (!id) return;
+    const row = document.querySelector(
+      `#author-table tbody tr[data-author-id="${id}"]`
+    );
+    if (row) row.classList.add("selected-row");
+  }
+
+  function selectAuthorRowByName(name) {
+    clearSelectedRows();
+    if (!name) return;
+    const rows = document.querySelectorAll("#author-table tbody tr");
+    for (const r of rows) {
+      const link = r.querySelector("td:first-child a");
+      if (link && link.textContent === name) {
+        r.classList.add("selected-row");
+        return;
+      }
+    }
+  }
+
+  function selectWorkRowByTitle(title) {
+    clearSelectedRows();
+    if (!title) return;
+    // Only look in the main works table now
+    const mainTableRows = document.querySelectorAll("#works-table tbody tr");
+    for (const r of mainTableRows) {
+      const cell = r.querySelector("td:first-child a");
+      if (cell && cell.textContent.trim() === title) {
+        r.classList.add("selected-row");
+        // Make sure the main table is visible
+        worksTable.classList.remove("hidden");
+        btnWorks.classList.add("active-button");
+        // Scroll the row into view if needed
+        r.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        return;
+      }
+    }
+  }
+
   // Set both buttons as active by default
   btnWorks.classList.add("active-button");
   btnAuthors.classList.add("active-button");
@@ -247,8 +301,8 @@ document.addEventListener("DOMContentLoaded", () => {
           nameLink.textContent = author.name;
           nameCell.appendChild(nameLink);
 
-          // Bio (may be empty)
-          bioCell.textContent = author.bio || "";
+          // Bio (may contain HTML) — render inside the table cell
+          bioCell.innerHTML = author.bio || "";
 
           // Corpus: show a visible checkmark when true and add accessible label
           const corpusSpan = document.createElement("span");
@@ -268,6 +322,9 @@ document.addEventListener("DOMContentLoaded", () => {
           row.appendChild(nameCell);
           row.appendChild(bioCell);
           row.appendChild(corpusCell);
+
+          // tag the row with the author id for easy lookup when selecting
+          if (author.id) row.dataset.authorId = author.id;
 
           authorTableBody.appendChild(row);
         });
@@ -327,6 +384,10 @@ document.addEventListener("DOMContentLoaded", () => {
           row.appendChild(statusCell);
           row.appendChild(ratingCell);
 
+          // tag the row with work id or title for selection
+          if (work.id) row.dataset.workId = work.id;
+          else row.dataset.workTitle = work.title;
+
           worksTableBody.appendChild(row);
         });
         saveOriginalOrder("works-table", worksTableBody);
@@ -346,6 +407,10 @@ document.addEventListener("DOMContentLoaded", () => {
           const authorName = target.textContent;
           const authorObj = authorsData.find((a) => a.name === authorName);
           if (!authorObj) return;
+          // visually mark the row being opened
+          const row = target.closest("tr");
+          clearSelectedRows();
+          if (row) row.classList.add("selected-row");
           openAuthorInfo(authorObj);
         }
       });
@@ -365,12 +430,17 @@ document.addEventListener("DOMContentLoaded", () => {
               (w) => w.title === target.textContent
             );
             if (!workObj) return;
+            // visually mark the work row being opened
+            clearSelectedRows();
+            if (row) row.classList.add("selected-row");
             openWorkInfo(workObj);
           } else {
             // Otherwise, it’s an author link: populate info-section-a
             const authorName = target.textContent;
             const authorObj = authorsData.find((a) => a.name === authorName);
             if (!authorObj) return;
+            // select the author row in author table
+            selectAuthorRowByName(authorName);
             openAuthorInfo(authorObj);
           }
         }

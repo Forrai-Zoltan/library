@@ -228,15 +228,7 @@ section:not(:has(form)) button {
   }
 }
 
-#info-section-a h1,
-#info-section-b h1 {
-  padding-right: 40px;
-}
 
-#info-section-a table {
-  width: 100%;
-  height: auto;
-}
 
 /* ------------------------------------------------------ */
 
@@ -374,7 +366,7 @@ tbody tr.even {
 }
 
 tbody tr:hover {
-  background-color: #363b54 !important;
+  background-color: hsla(230, 21%, 41%, 0.6) !important;
 }
 
 tbody tr.odd.read-row {
@@ -393,8 +385,34 @@ tbody tr.read-row:hover {
   display: none;
 }
 
+#author-table img {
+  display: none;
+}
+
+#author-table br {
+  display: none;
+}
+/* ---------------------------------------- */
+
+#info-section-a h1,
+#info-section-b h1 {
+  padding-right: 40px;
+  padding-top: 15px;
+}
+
+#info-section-a table {
+  width: 100%;
+  height: auto;
+}
+
 #info-section-a table {
   border-collapse: collapse;
+}
+
+#info-section-a img {
+  max-width: 100%;
+  border-radius: 10px;
+
 }
 
 
@@ -420,4 +438,27 @@ tbody tr.read-row:hover {
 h1#b-title,
 h1#a-name {
   font-size: 1.5rem !important;
+}
+
+
+
+
+tr.selected-row {
+  outline: 1px solid #52597d;
+}
+
+tr.selected-row * {
+  color: rgb(141, 198, 255) !important;
+}
+
+tr.even.selected-row {
+  background-color: #363b54;
+}
+
+tr.odd.selected-row {
+  background-color: #363b54;
+}
+
+tr.selected-row.read-row {
+background-color: hsl(120, 40%, 20%) !important;
 }
