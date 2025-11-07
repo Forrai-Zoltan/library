@@ -455,6 +455,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const closeBtnA = infoSectionA.querySelector(".close");
     if (closeBtnA) {
       closeBtnA.addEventListener("click", () => {
+        clearSelectedRows();
         showOnlySection("default-section");
       });
     }
@@ -463,6 +464,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const closeBtnB = infoSectionB.querySelector(".close");
     if (closeBtnB) {
       closeBtnB.addEventListener("click", () => {
+        clearSelectedRows();
         showOnlySection("default-section");
       });
     }
