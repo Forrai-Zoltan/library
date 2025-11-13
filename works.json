@@ -1,28 +1,44 @@
 {
   "works": [
     {
-    "title": "Quack This Way",
-    "authors": ["a30", "a37"],
-    "tags": "biography",
-    "status": "unread",
-    "rating": null,
-    "notes": ""
-    },
-    {
-    "title": "Critical Theory Today",
-    "authors": ["a36"],
-    "tags": "literary criticism, theory",
+    "title": "The uses of supernatural power",
+    "authors": ["a38"],
+    "tags": "history",
     "status": "reading",
     "rating": null,
-    "notes": "A User-Friendly Guide"
+    "notes": ""
     },
     {
-    "title": "Maze",
-    "authors": ["a35"],
-    "tags": "puzzle",
-    "status": "read",
-    "rating": 10,
-    "notes": ""
+      "title": "Jerusalem",
+      "authors": ["a33"],
+      "tags": "hisorical fiction",
+      "status": "unread",
+      "rating": null,
+      "notes": ""
+    },
+    {
+      "title": "Quack This Way",
+      "authors": ["a30", "a37"],
+      "tags": "biography",
+      "status": "unread",
+      "rating": null,
+      "notes": ""
+    },
+    {
+      "title": "Critical Theory Today",
+      "authors": ["a36"],
+      "tags": "literary criticism, theory",
+      "status": "reading",
+      "rating": null,
+      "notes": "A User-Friendly Guide"
+    },
+    {
+      "title": "Maze",
+      "authors": ["a35"],
+      "tags": "puzzle",
+      "status": "read",
+      "rating": 10,
+      "notes": ""
     },
     {
       "title": "Mac Flecknoe",

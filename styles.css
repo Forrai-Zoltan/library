@@ -261,9 +261,9 @@ button#recommend.active-button {
 input {
   width: 100%;
   color: #c0caf5;
-  background-color: #14141b;
+  background-color: #1a1b26;
   box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.5);
-  border: var(--glass-border);
+  border: 1px solid hsla(229, 73%, 86%, 0.35);
   border-radius: 7px;
   padding: 2px;
   padding-left: 30px;
@@ -277,7 +277,7 @@ input {
   background-size: 18px 18px;
 
   &::placeholder {
-    color: #363b54;
+    color: #52597d;
   }
 
   &:focus,
@@ -287,7 +287,7 @@ input {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='24' viewBox='0 0 24 24' fill='none' stroke='%2352597d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m21 21-4.34-4.34'/%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3C/svg%3E");
 
     &::placeholder {
-      color: #52597d;
+      color: hsla(229, 73%, 86%, 0.5);
     }
   }
 }
