@@ -39,4 +39,8 @@
     margin-bottom: 5px;
     height: 200px;
   }
+  input {
+    background-image: none !important;
+  padding-left: 5px;
+  }
 }
