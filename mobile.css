@@ -12,8 +12,8 @@
   }
 
   aside {
-    flex: 0 0 310px;
-    max-width: 310px;
+    flex: 0 0 320px;
+    max-width: 320px;
     height: 95.5vh;
     overflow-y: auto;
   }
