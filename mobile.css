@@ -1,0 +1,42 @@
+@media only screen and (max-width: 700px) {
+  html {
+    overflow-y: hidden;
+  }
+
+  body {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  aside {
+    flex: 0 0 310px;
+    max-width: 310px;
+    height: 95.5vh;
+    overflow-y: auto;
+  }
+
+  main {
+    flex: 0 0 auto;
+    min-width: 600px;
+    height: 95.5vh;
+    overflow-x: auto;
+    overflow-y: auto;
+  }
+
+  #author-table {
+    min-width: max-content;
+    min-width: 600px;
+  }
+
+  #recommend-box {
+    padding: 10px;
+  }
+
+  #message {
+    margin-bottom: 5px;
+    height: 200px;
+  }
+}
